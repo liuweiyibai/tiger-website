@@ -24,8 +24,7 @@
     "@nuxtjs/style-resources": "^1.2.1",
     "babel-plugin-component": "^1.1.1",
     "eslint-config-prettier": "^8.3.0",
-    "postcss": "^8.4.12",
-    "postcss-pxtorem": "^6.0.0",
+    "postcss-px-to-viewport": "^1.1.1",
     "prettier": "^2.5.1",
     "sass": "^1.50.1",
     "sass-loader": "10"

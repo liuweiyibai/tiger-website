@@ -56,14 +56,32 @@ export default {
       ({ isDev, isLegacy }) => isDev && isLegacy && 'ansi-regex',
       ({ isDev, isLegacy }) => isDev && isLegacy && 'strip-ansi',
     ],
-    postcss: [
-      require('postcss-pxtorem')({
-        rootValue: 90,
-        propList: ['*'],
-      }),
-      // require('autoprefixer')({
-      //   browsers: ['Android >= 4.0', 'iOS >= 7'],
-      // }),
-    ],
+    postcss: {
+      plugins: {
+        autoprefixer: {},
+        // 'postcss-pxtorem': {
+        //   rootValue: 100,
+        //   propList: ['*'],
+        // },
+
+        'postcss-px-to-viewport': {
+          unitToConvert: 'px',
+          viewportWidth: 1440,
+          unitPrecision: 5,
+          propList: ['*'],
+          viewportUnit: 'vw',
+          fontViewportUnit: 'vw',
+          selectorBlackList: [],
+          minPixelValue: 1,
+          mediaQuery: false,
+          replace: true,
+          exclude: undefined,
+          include: undefined,
+          landscape: false,
+          landscapeUnit: 'vw',
+          landscapeWidth: 1440,
+        },
+      },
+    },
   },
 }

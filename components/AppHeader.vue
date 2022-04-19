@@ -3,7 +3,7 @@
     <div class="app-logo"></div>
     <ul class="app-nav">
       <li class="nav-link home__link">
-        <nuxt-link to="/" active-class="active">首页</nuxt-link>
+        <nuxt-link to="/">首页</nuxt-link>
       </li>
       <li class="nav-link info-center__link">
         <nuxt-link to="/redu">资讯中心</nuxt-link>
@@ -137,19 +137,23 @@
           box-sizing: border-box;
           padding-left: 53px;
           text-align: left;
+          transition: all linear 0.3s;
           &:first-child {
             margin-top: 38px;
           }
+          &:before {
+            content: '';
+            position: absolute;
+            width: 2px;
+            height: 12px;
+          }
+          &:hover,
           &.active {
             font-size: 14px;
             font-family: PingFangSC-Medium, PingFang SC;
             font-weight: 500;
             color: #000000;
             &:before {
-              content: '';
-              position: absolute;
-              width: 2px;
-              height: 12px;
               background: #ffd400;
               border-radius: 1px;
               left: 45px;

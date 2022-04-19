@@ -1,6 +1,9 @@
 @import './variables';
 @import './reset';
 
+body {
+  overflow-x: auto;
+}
 #__nuxt {
   min-width: 1440px;
 }
