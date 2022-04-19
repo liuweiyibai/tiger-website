@@ -1,0 +1,9 @@
+$primary-color: #ffd400;
+
+@mixin clearfix {
+  &:after {
+    content: '';
+    display: table;
+    clear: both;
+  }
+}
