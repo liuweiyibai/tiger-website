@@ -37,10 +37,10 @@ export default {
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
   plugins: [
     { src: '@/plugins/element-ui', ssr: true },
-    {
-      src: './lib/responsive.js',
-      ssr: false,
-    },
+    // {
+    //   src: './lib/responsive.js',
+    //   ssr: false,
+    // },
   ],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
@@ -59,10 +59,6 @@ export default {
     postcss: {
       plugins: {
         autoprefixer: {},
-        // 'postcss-pxtorem': {
-        //   rootValue: 100,
-        //   propList: ['*'],
-        // },
 
         'postcss-px-to-viewport': {
           unitToConvert: 'px',
@@ -71,7 +67,7 @@ export default {
           propList: ['*'],
           viewportUnit: 'vw',
           fontViewportUnit: 'vw',
-          selectorBlackList: [],
+          selectorBlackList: ['#__nuxt'],
           minPixelValue: 1,
           mediaQuery: false,
           replace: true,

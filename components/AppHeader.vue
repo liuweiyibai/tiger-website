@@ -25,7 +25,17 @@
           <li><nuxt-link to="/redu">点点招聘</nuxt-link></li>
         </ul>
       </li>
+      <li class="nav-link about__link">
+        <nuxt-link to="">关于我们</nuxt-link>
+        <ul class="nav-dropdown">
+          <li class="active"><nuxt-link to="/redu">公司介绍</nuxt-link></li>
+          <li><nuxt-link to="/redu">分支结构</nuxt-link></li>
+        </ul>
+      </li>
     </ul>
+    <div class="app-nav-right">
+      <span>400-1566-001</span>
+    </div>
   </div>
 </template>
 
@@ -43,12 +53,24 @@
   box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.22);
   box-sizing: border-box;
   padding-left: 73px;
+  position: fixed;
+  top: 0;
+  z-index: 999;
+  @include respond() {
+    height: 80px;
+    padding-left: 73px;
+  }
+
   .app-logo {
     width: 110px;
     height: 80px;
     background-color: red;
     margin-right: 138px;
     float: left;
+    @include respond() {
+      height: 80px;
+      margin-right: 138px;
+    }
   }
 
   .app-nav {
@@ -57,25 +79,40 @@
     color: #000000;
     letter-spacing: 1px;
     float: left;
-
+    @include respond() {
+      font-size: 16px;
+    }
     .nav-link {
       float: left;
-      line-height: 76px;
+      line-height: 80px;
       position: relative;
       border-bottom: 4px solid transparent;
       height: 100%;
       transition: all linear 0.3s;
       text-align: center;
+      @include respond() {
+        line-height: 80px;
+        border-bottom: 4px solid transparent;
+      }
       &.home__link {
         width: 85px;
+        @include respond() {
+          width: 85px;
+        }
       }
 
       // 资讯中心
       &.info-center__link {
         width: 130px;
+        @include respond() {
+          width: 130px;
+        }
         &:hover {
           .nav-dropdown {
             height: 174px;
+            @include respond() {
+              height: 174px;
+            }
           }
         }
       }
@@ -83,6 +120,9 @@
       // 新职业标准
       &.new-job-standard__link {
         width: 150px;
+        @include respond() {
+          width: 150px;
+        }
       }
 
       // 产品服务
@@ -91,6 +131,33 @@
         &:hover {
           .nav-dropdown {
             height: 213px;
+          }
+        }
+
+        @include respond() {
+          width: 130px;
+          &:hover {
+            .nav-dropdown {
+              height: 213px;
+            }
+          }
+        }
+      }
+
+      &.about__link {
+        width: 114px;
+        &:hover {
+          .nav-dropdown {
+            height: 135px;
+          }
+        }
+
+        @include respond() {
+          width: 114px;
+          &:hover {
+            .nav-dropdown {
+              height: 135px;
+            }
           }
         }
       }
@@ -102,9 +169,18 @@
         height: 0;
         left: 0;
         right: 0;
-        bottom: -4px;
+        bottom: 0;
         background-color: transparent;
         transition: all linear 0.3s;
+      }
+
+      @include respond() {
+        &:hover {
+          @include active();
+          &:after {
+            height: 4px;
+          }
+        }
       }
 
       &:hover {
@@ -125,6 +201,12 @@
         transition: all linear 0.3s;
         height: 0;
         overflow: hidden;
+        @include respond() {
+          top: 80px;
+          left: -25px;
+          right: -25px;
+        }
+
         li {
           font-size: 14px;
           font-family: PingFangSC-Light, PingFang SC;
@@ -159,8 +241,46 @@
               left: 45px;
             }
           }
+
+          @include respond() {
+            font-size: 14px;
+            line-height: 13px;
+            margin-bottom: 26px;
+            padding-left: 53px;
+
+            &:first-child {
+              margin-top: 38px;
+            }
+            &:before {
+              width: 2px;
+              height: 12px;
+            }
+            &:hover,
+            &.active {
+              font-size: 14px;
+              &:before {
+                left: 45px;
+              }
+            }
+          }
         }
       }
+    }
+  }
+
+  .app-nav-right {
+    float: right;
+    margin-right: 70px;
+    font-size: 22px;
+    font-family: Gilroy-Bold, Gilroy;
+    font-weight: bold;
+    color: #666666;
+    line-height: 80px;
+
+    @include respond() {
+      margin-right: 70px;
+      font-size: 22px;
+      line-height: 80px;
     }
   }
 }
