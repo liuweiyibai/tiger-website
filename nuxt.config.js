@@ -2,11 +2,13 @@ export default {
   // Target: https://go.nuxtjs.dev/config-target
   target: 'static',
 
+  fallback: true,
+
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
     title: 'tiger-website',
     htmlAttrs: {
-      lang: 'zh_cn',
+      lang: 'zh_CN',
     },
     meta: [
       { charset: 'utf-8' },
@@ -24,10 +26,16 @@ export default {
 
   router: {
     mode: 'hash',
+    scrollBehavior(to, from, savedPosition) {
+      return { x: 0, y: 0 }
+    },
   },
 
   // Global CSS: https://go.nuxtjs.dev/config-css
-  css: ['@/styles/main.scss'],
+  css: [
+    '@/styles/main.scss',
+    './node_modules/swiper/dist/idangerous.swiper.css',
+  ],
 
   modules: ['@nuxtjs/style-resources'],
   styleResources: {
@@ -37,10 +45,7 @@ export default {
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
   plugins: [
     { src: '@/plugins/element-ui', ssr: true },
-    // {
-    //   src: './lib/responsive.js',
-    //   ssr: false,
-    // },
+    { src: '@/plugins/swiper', ssr: false },
   ],
 
   // Auto import components: https://go.nuxtjs.dev/config-components

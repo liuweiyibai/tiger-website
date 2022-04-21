@@ -66,3 +66,7 @@ More information about the usage of this directory in [the documentation](https:
 This directory contains your Vuex store files. Creating a file in this directory automatically activates Vuex.
 
 More information about the usage of this directory in [the documentation](https://nuxtjs.org/docs/2.x/directory-structure/store).
+
+## 蓝湖
+
+https://lanhuapp.com/web/#/item/project/detailDetach?pid=14aedd5b-8c1a-4e9b-88dc-8cb6af939f62&image_id=711ac302-9763-4120-b0c8-ae60142192c7&project_id=14aedd5b-8c1a-4e9b-88dc-8cb6af939f62&fromEditor=true

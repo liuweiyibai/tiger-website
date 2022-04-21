@@ -133,140 +133,147 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.index-newpos__layout {
-  width: 100%;
-  height: 707px;
-  background-image: url(~@/assets/images/img_职业目录底图@3x.png);
-  background-size: 100% 100%;
-  background-position: center;
-  background-repeat: no-repeat;
-  box-sizing: border-box;
-  padding-top: 53px;
-  h2 {
-    height: 70px;
-    font-size: 50px;
-    font-family: PingFangSC-Semibold, PingFang SC;
-    font-weight: 600;
-    color: #ffffff;
-    line-height: 70px;
-    text-align: center;
-    margin: 0;
-    padding: 0;
-  }
-
-  .category {
-    padding: 0 34px;
-    box-sizing: border-box;
-    width: 1200px;
-    margin: 0 auto;
-    margin-top: 62px;
-    position: relative;
-    ul {
-      @include clearfix;
-      li {
-        float: left;
-        margin-right: 52px;
-        cursor: pointer;
-        position: relative;
-        &:last-child {
-          margin-right: 0;
-        }
-        &:before {
-          content: '';
-          position: absolute;
-          display: block;
-          width: 8px;
-          height: 8px;
-          background: #828285;
-          left: 50%;
-          bottom: -49px;
-          margin-left: -4px;
-          border-radius: 50%;
-          transition: all 0.6s;
-        }
-        &::after {
-          content: '';
-          position: absolute;
-          display: block;
-          width: 0px;
-          height: 0px;
-          left: 50%;
-          bottom: -57.5px;
-          margin-left: -13px;
-          border-radius: 50%;
-          transition: all 0.6s;
-          width: 26px;
-          height: 26px;
-        }
-        &:hover,
-        &.active {
-          &::before {
-            background: #ffd400;
-            z-index: 2;
-          }
-          &::after {
-            background: #706327;
-          }
-        }
-      }
-      span {
-        font-size: 24px;
-        font-family: PingFangSC-Regular, PingFang SC;
-        font-weight: 400;
-        color: #ffffff;
-        line-height: 20px;
-      }
-    }
-    .line {
-      height: 1px;
-      width: 100%;
-      background: rgba(255, 255, 255, 0.39);
-      position: absolute;
-      bottom: -45px;
-      left: 0;
-    }
-  }
-
-  .detail-box {
-    height: 308px;
-    width: 1040px;
-    margin: 0 auto;
-    margin-top: 108px;
-    background-image: url(~@/assets/images/img_职业文字底图@3x.png);
+@mixin styles() {
+  .index-newpos__layout {
+    width: 100%;
+    height: 707px;
+    background-image: url(~@/assets/images/img_职业目录底图@3x.png);
     background-size: 100% 100%;
     background-position: center;
     background-repeat: no-repeat;
-    border-radius: 13px;
-    overflow: hidden;
-    .box-title {
-      background: linear-gradient(270deg, #ffe502 0%, #fdc601 100%);
-      height: 60px;
-      font-size: 24px;
-      font-family: PingFangSC-Regular, PingFang SC;
-      font-weight: 400;
-      color: #000000;
-      line-height: 60px;
+    box-sizing: border-box;
+    padding-top: 53px;
+    h2 {
+      height: 70px;
+      font-size: 50px;
+      font-family: PingFangSC-Semibold, PingFang SC;
+      font-weight: 600;
+      color: #ffffff;
+      line-height: 70px;
       text-align: center;
+      margin: 0;
+      padding: 0;
     }
-    .box-content {
-      height: 248px;
+
+    .category {
+      padding: 0 34px;
       box-sizing: border-box;
-      padding: 0 132px;
-      padding-right: 32px;
-      padding-top: 28px;
-      li {
-        margin-right: 100px;
-        margin-bottom: 25px;
-        float: left;
-        font-size: 18px;
-        min-width: 192px;
+      width: 1200px;
+      margin: 0 auto;
+      margin-top: 62px;
+      position: relative;
+      ul {
+        @include clearfix;
+        li {
+          float: left;
+          margin-right: 52px;
+          cursor: pointer;
+          position: relative;
+          &:last-child {
+            margin-right: 0;
+          }
+          &:before {
+            content: '';
+            position: absolute;
+            display: block;
+            width: 8px;
+            height: 8px;
+            background: #828285;
+            left: 50%;
+            bottom: -49px;
+            margin-left: -4px;
+            border-radius: 50%;
+            transition: all 0.6s;
+          }
+          &::after {
+            content: '';
+            position: absolute;
+            display: block;
+            width: 0px;
+            height: 0px;
+            left: 50%;
+            bottom: -57.5px;
+            margin-left: -13px;
+            border-radius: 50%;
+            transition: all 0.6s;
+            width: 26px;
+            height: 26px;
+          }
+          &:hover,
+          &.active {
+            &::before {
+              background: #ffd400;
+              z-index: 2;
+            }
+            &::after {
+              background: #706327;
+            }
+          }
+        }
+        span {
+          font-size: 24px;
+          font-family: PingFangSC-Regular, PingFang SC;
+          font-weight: 400;
+          color: #ffffff;
+          line-height: 20px;
+        }
+      }
+      .line {
+        height: 1px;
+        width: 100%;
+        background: rgba(255, 255, 255, 0.39);
+        position: absolute;
+        bottom: -45px;
+        left: 0;
+      }
+    }
+
+    .detail-box {
+      height: 308px;
+      width: 1040px;
+      margin: 0 auto;
+      margin-top: 108px;
+      background-image: url(~@/assets/images/img_职业文字底图@3x.png);
+      background-size: 100% 100%;
+      background-position: center;
+      background-repeat: no-repeat;
+      border-radius: 13px;
+      overflow: hidden;
+      .box-title {
+        background: linear-gradient(270deg, #ffe502 0%, #fdc601 100%);
+        height: 60px;
+        font-size: 24px;
         font-family: PingFangSC-Regular, PingFang SC;
         font-weight: 400;
-        color: #ffffff;
-        line-height: 18px;
-        letter-spacing: 1px;
+        color: #000000;
+        line-height: 60px;
+        text-align: center;
+      }
+      .box-content {
+        height: 248px;
+        box-sizing: border-box;
+        padding: 0 132px;
+        padding-right: 32px;
+        padding-top: 28px;
+        li {
+          margin-right: 100px;
+          margin-bottom: 25px;
+          float: left;
+          font-size: 18px;
+          min-width: 192px;
+          font-family: PingFangSC-Regular, PingFang SC;
+          font-weight: 400;
+          color: #ffffff;
+          line-height: 18px;
+          letter-spacing: 1px;
+        }
       }
     }
   }
+}
+
+@include styles();
+@include respond() {
+  @include styles();
 }
 </style>

@@ -1,6 +1,6 @@
 <template>
   <div class="index-yewu__layout">
-    <h2 class="title">业务布局</h2>
+    <div><h2 class="title">业务布局</h2></div>
     <div class="description">
       大变局时代，新技术、新产业、新业态和新模式集中涌现，加速新旧职业的更迭
     </div>
@@ -20,7 +20,9 @@
           </div>
           <div class="text-box">
             <h3>{{ item.title }}</h3>
-            <p>{{ item.text }}</p>
+            <div>
+              {{ item.text }}
+            </div>
           </div>
         </div>
       </div>
@@ -59,151 +61,38 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.index-yewu__layout {
-  // height: 512px;
-  .title {
-    height: 70px;
-    font-size: 50px;
-    font-family: PingFangSC-Semibold, PingFang SC;
-    font-weight: 600;
-    color: rgba(0, 0, 0, 0.8);
-    line-height: 70px;
-    margin-top: 60px;
-    text-align: center;
-  }
-
-  .description {
-    width: 873px;
-    height: 33px;
-    font-size: 24px;
-    font-family: PingFangSC-Light, PingFang SC;
-    font-weight: 300;
-    color: rgba(0, 0, 0, 0.8);
-    line-height: 33px;
-    text-align: center;
-    margin: 0 auto;
-    margin-top: 15px;
-    &.highlight {
-      width: 524px;
-      height: 33px;
-      font-size: 24px;
-      font-family: PingFangSC-Medium, PingFang SC;
-      font-weight: 500;
-      color: rgba(0, 0, 0, 0.8);
-      line-height: 33px;
-      margin-top: 10px;
-    }
-  }
-
-  .service-list {
-    margin: 0 110px;
-    margin-top: 76px;
-    margin-bottom: 88px;
-    margin-left: 116px;
-    @include clearfix;
-    .service-item {
-      width: 396px;
-      height: 460px;
-      float: left;
-      position: relative;
-      border-right: 6px solid #fff;
-      &:last-child {
-        border: 0 none;
-      }
-      .item-box {
-        width: 100%;
-        height: 460px;
-        position: absolute;
-        left: 0;
-        top: 0;
-        transition: all 0.6s;
-        background: #1b1a18;
-        overflow: hidden;
-        .image-box {
-          height: 210px;
-          width: 100%;
-          img {
-            width: 100%;
-            height: 100%;
-          }
-        }
-        .text-box {
-          width: 396px;
-          height: 250px;
-          padding-top: 56px;
-          padding-left: 47px;
-          box-sizing: border-box;
-          h3 {
-            width: 72px;
-            height: 33px;
-            font-size: 24px;
-            font-family: PingFangSC-Medium, PingFang SC;
-            font-weight: 500;
-            color: #ffffff;
-            line-height: 33px;
-            margin: 0;
-            padding: 0;
-          }
-          p {
-            font-size: 18px;
-            font-family: PingFangSC-Regular, PingFang SC;
-            font-weight: 400;
-            color: #ffffff;
-            line-height: 28px;
-          }
-        }
-        &.item-box-1 .text-box p {
-          width: 305px;
-        }
-        &.item-box-2 .text-box p {
-          width: 287px;
-        }
-        &.item-box-3 .text-box p {
-          width: 275px;
-        }
-      }
-      &:hover,
-      .active {
-        .item-box {
-          z-index: 2;
-          width: 408px;
-          height: 536px;
-          left: 50%;
-          top: 50%;
-          transform: translate(-50%, -50%);
-          background: #ffd400;
-          box-shadow: 0px 2px 25px 0px rgba(255, 212, 0, 0.26);
-          border-radius: 20px;
-          .image-box {
-            height: 216px;
-          }
-          .text-box {
-            height: 320px;
-            padding-top: 91px;
-            padding-left: 35px;
-          }
-        }
-      }
-    }
-  }
-  @include respond() {
+@mixin styles() {
+  .index-yewu__layout {
+    // height: 512px;
     .title {
       height: 70px;
       font-size: 50px;
+      font-family: PingFangSC-Semibold, PingFang SC;
+      font-weight: 600;
+      color: rgba(0, 0, 0, 0.8);
       line-height: 70px;
       margin-top: 60px;
+      text-align: center;
     }
 
     .description {
       width: 873px;
       height: 33px;
       font-size: 24px;
+      font-family: PingFangSC-Light, PingFang SC;
+      font-weight: 300;
+      color: rgba(0, 0, 0, 0.8);
       line-height: 33px;
+      text-align: center;
+      margin: 0 auto;
       margin-top: 15px;
       &.highlight {
         width: 524px;
         height: 33px;
         font-size: 24px;
+        font-family: PingFangSC-Medium, PingFang SC;
+        font-weight: 500;
+        color: rgba(0, 0, 0, 0.8);
         line-height: 33px;
         margin-top: 10px;
       }
@@ -214,40 +103,65 @@ export default {
       margin-top: 76px;
       margin-bottom: 88px;
       margin-left: 116px;
+      @include clearfix;
       .service-item {
         width: 396px;
         height: 460px;
+        float: left;
+        position: relative;
         border-right: 6px solid #fff;
-
+        &:last-child {
+          border: 0 none;
+        }
         .item-box {
           width: 100%;
           height: 460px;
+          position: absolute;
+          left: 0;
+          top: 0;
+          transition: all 0.6s;
+          background: #1b1a18;
+          overflow: hidden;
           .image-box {
             height: 210px;
+            width: 100%;
+            img {
+              width: 100%;
+              height: 100%;
+            }
           }
           .text-box {
             width: 396px;
             height: 250px;
             padding-top: 56px;
             padding-left: 47px;
+            box-sizing: border-box;
             h3 {
               width: 72px;
               height: 33px;
               font-size: 24px;
+              font-family: PingFangSC-Medium, PingFang SC;
+              font-weight: 500;
+              color: #ffffff;
               line-height: 33px;
+              margin: 0;
+              padding: 0;
             }
-            p {
+            div {
               font-size: 18px;
+              font-family: PingFangSC-Regular, PingFang SC;
+              font-weight: 400;
+              color: #ffffff;
               line-height: 28px;
             }
           }
-          &.item-box-1 .text-box p {
+          &.item-box-1 .text-box div {
             width: 305px;
           }
-          &.item-box-2 .text-box p {
+          &.item-box-2 .text-box div {
             width: 287px;
           }
-          &.item-box-3 .text-box p {
+          &.item-box-3 .text-box div {
             width: 275px;
           }
         }
@@ -257,6 +171,10 @@ export default {
             z-index: 2;
             width: 408px;
             height: 536px;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            background: #ffd400;
             box-shadow: 0px 2px 25px 0px rgba(255, 212, 0, 0.26);
             border-radius: 20px;
             .image-box {
@@ -272,5 +190,10 @@ export default {
       }
     }
   }
+}
+
+@include styles();
+@include respond() {
+  @include styles();
 }
 </style>

@@ -7,4 +7,34 @@ body {
 }
 #__nuxt {
   min-width: 1440px;
+  .el-breadcrumb__inner a,
+  .el-breadcrumb__inner.is-link {
+    font-weight: normal;
+  }
+  .el-breadcrumb__inner {
+    color: #999999;
+  }
+}
+
+.swiper-free-mode > .swiper-wrapper {
+  transition-timing-function: linear !important;
+}
+
+// 自己定义的h2样式
+._h2 {
+  height: 28px;
+  font-size: 32px;
+  font-family: PingFangSC-Medium, PingFang SC;
+  font-weight: 500;
+  color: #000000;
+  line-height: 28px;
+}
+
+// 自定义的p标签样式
+._p {
+  font-size: 16px;
+  font-family: PingFangSC-Regular, PingFang SC;
+  font-weight: 400;
+  color: #666666;
+  line-height: 28px;
 }

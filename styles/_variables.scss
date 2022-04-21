@@ -17,3 +17,53 @@ $breakpoint: 1440px;
     @content;
   }
 }
+
+@mixin header-with-breadcrumb {
+  .header {
+    box-sizing: border-box;
+    padding-top: 18px;
+    background: #ffffff;
+    .el-breadcrumb {
+      margin-left: 119px;
+      font-size: 18px;
+      font-family: PingFangSC-Regular, PingFang SC;
+      font-weight: 400;
+      color: #999999;
+      margin-bottom: 50px;
+    }
+  }
+}
+
+// 有面包屑导航和单标题的header，产品服务和资讯中心使用
+@mixin header-with-breadcrumb-title {
+  @include header-with-breadcrumb;
+  .header {
+    background: #fff;
+    box-sizing: border-box;
+    border-bottom: 1px solid #dddddd;
+    padding-top: 18px;
+    position: relative;
+    &::after {
+      content: '';
+      width: 64px;
+      display: block;
+      height: 4px;
+      background: #ffd400;
+      left: 50%;
+      bottom: 0;
+      position: absolute;
+      transform: translateX(-50%);
+    }
+
+    .title-box {
+      height: 16px;
+      font-size: 16px;
+      font-family: PingFangSC-Medium, PingFang SC;
+      font-weight: 500;
+      color: #000000;
+      line-height: 16px;
+      margin-bottom: 19px;
+      text-align: center;
+    }
+  }
+}

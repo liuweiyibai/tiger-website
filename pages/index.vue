@@ -6,6 +6,12 @@
     <IndexPageNewPosCategory />
     <!-- 生态全景图 -->
     <IndexPageEcology />
+    <!-- 覆盖网络 -->
+    <IndexPageOverlyNet />
+    <!-- 合作单位 -->
+    <IndexPageCo />
+    <!-- 开启合作 -->
+    <IndexPageEmail />
   </div>
 </template>
 
@@ -18,7 +24,6 @@ export default {
 
 <style lang="scss" scoped>
 .index-page {
-  // background: #f3f4f5;
   background: #fff;
 }
 </style>
