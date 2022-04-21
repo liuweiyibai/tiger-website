@@ -68,6 +68,7 @@
     background: #000000;
     box-sizing: border-box;
     padding: 0 70px;
+    overflow: hidden;
     .footer-1 {
       padding-top: 47px;
       padding-bottom: 30px;

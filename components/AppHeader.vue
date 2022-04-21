@@ -28,21 +28,21 @@
         <nuxt-link to="/new-pos-standard">新职业标准</nuxt-link>
       </li>
       <li class="nav-link product-service__link">
-        <nuxt-link to="/product-service?key=1">产品服务</nuxt-link>
+        <nuxt-link to="/product-service">产品服务</nuxt-link>
         <ul class="nav-dropdown">
           <li class="active">
-            <nuxt-link to="/product-service?key=1">新职业培训</nuxt-link>
+            <nuxt-link to="/product-service">新职业培训</nuxt-link>
           </li>
-          <li><nuxt-link to="/product-service?key=2">职业评价</nuxt-link></li>
-          <li><nuxt-link to="/product-service?key=3">院校合作</nuxt-link></li>
-          <li><nuxt-link to="/product-service?key=4">点点招聘</nuxt-link></li>
+          <li><nuxt-link to="/product-service/2">职业评价</nuxt-link></li>
+          <li><nuxt-link to="/product-service/3">院校合作</nuxt-link></li>
+          <li><nuxt-link to="/product-service/4">点点招聘</nuxt-link></li>
         </ul>
       </li>
       <li class="nav-link about__link">
         <nuxt-link to="">关于我们</nuxt-link>
         <ul class="nav-dropdown">
-          <li class="active"><nuxt-link to="/redu">公司介绍</nuxt-link></li>
-          <li><nuxt-link to="/redu">分支结构</nuxt-link></li>
+          <li class="active"><nuxt-link to="">公司介绍</nuxt-link></li>
+          <li><nuxt-link to="">分支结构</nuxt-link></li>
         </ul>
       </li>
     </ul>

@@ -37,7 +37,7 @@ export default {
     './node_modules/swiper/dist/idangerous.swiper.css',
   ],
 
-  modules: ['@nuxtjs/style-resources'],
+  modules: ['@nuxtjs/style-resources', '@nuxtjs/axios'],
   styleResources: {
     scss: ['./styles/_variables.scss'],
   },
@@ -53,6 +53,24 @@ export default {
 
   // Modules for dev and build (recommended): https://go.nuxtjs.dev/config-modules
   buildModules: [],
+  axios: {
+    proxy: false, // 表示开启代理
+    // prefix: '/', // 表示给请求url加个前缀 /api
+    credentials: true,
+    debug: true,
+    baseURL:
+      'https://www.fastmock.site/mock/a4d0ead5174008439867b1760d5b1ed3/api',
+  },
+  // proxy: {
+  //   '/api': {
+  //     target:
+  //       'https://www.fastmock.site/mock/a4d0ead5174008439867b1760d5b1ed3/api', // 目标接口域名
+  //     changeOrigin: true, // 表示是否跨域
+  //     pathRewrite: {
+  //       '^/api': '/api', // 把 /api 替换成 /
+  //     },
+  //   },
+  // },
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {

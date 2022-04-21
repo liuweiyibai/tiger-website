@@ -4,20 +4,29 @@
       <el-breadcrumb separator-class="el-icon-arrow-right">
         <el-breadcrumb-item :to="{ path: '/' }">首页</el-breadcrumb-item>
         <el-breadcrumb-item>产品服务</el-breadcrumb-item>
-        <el-breadcrumb-item>新职业培训</el-breadcrumb-item>
+        <el-breadcrumb-item>{{ title }}</el-breadcrumb-item>
       </el-breadcrumb>
       <div class="title-box">
-        <span>新职业培训</span>
+        <span>{{ brandTitle }}</span>
       </div>
     </div>
-    <div></div>
+    <slot></slot>
   </div>
 </template>
 
 <script>
 export default {
-  name: 'ProductServicePage',
-  layout: 'app-layout',
+  name: 'ProductServiceLayout',
+  props: {
+    title: {
+      type: String,
+      default: '新职业培训',
+    },
+    brandTitle: {
+      type: String,
+      default: '新职业培训',
+    },
+  },
 }
 </script>
 

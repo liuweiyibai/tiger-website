@@ -28,6 +28,22 @@ body {
   font-weight: 500;
   color: #000000;
   line-height: 28px;
+  margin: 0;
+}
+._h2-title {
+  i {
+    font-style: normal;
+    color: #ffd400;
+    margin-right: 6px;
+  }
+  span {
+    font-size: 16px;
+    font-family: PingFangSC-Medium, PingFang SC;
+    font-weight: 500;
+    color: #666666;
+    line-height: 28px;
+    margin-left: 8px;
+  }
 }
 
 // 自定义的p标签样式
@@ -37,4 +53,5 @@ body {
   font-weight: 400;
   color: #666666;
   line-height: 28px;
+  margin: 0;
 }
