@@ -19,6 +19,9 @@
 export default {
   name: 'InfoCenterPage',
   layout: 'app-layout',
+  galleryData: {
+    type: 'info-center',
+  },
 }
 </script>
 

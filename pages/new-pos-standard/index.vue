@@ -28,6 +28,9 @@
 export default {
   name: 'NewPosStandardPage',
   layout: 'app-layout',
+  galleryData: {
+    type: 'new-pos-standard',
+  },
   data() {
     return {
       categories: [

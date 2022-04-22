@@ -6,6 +6,7 @@
         <el-breadcrumb-item>新职业标准</el-breadcrumb-item>
         <el-breadcrumb-item>金融文娱</el-breadcrumb-item>
       </el-breadcrumb>
+
       <div class="title-box">
         <span>活动资讯</span>
       </div>

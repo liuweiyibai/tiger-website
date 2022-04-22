@@ -2701,7 +2701,15 @@ copy-descriptor@^0.1.0:
   resolved "https://registry.npmmirror.com/copy-descriptor/-/copy-descriptor-0.1.1.tgz#676f6eb3c39997c2ee1ac3a924fd6124748f578d"
   integrity sha512-XgZ0pFcakEUlbwQEVNg3+QAis1FyTL3Qel9FYy8pSkQqoG3PNoT0bOCQtOXcOkur21r2Eq2kI+IE+gsmAEVlYw==
 
-core-js-compat@^3.12.1, core-js-compat@^3.20.2, core-js-compat@^3.21.0:
+core-js-compat@^3.12.1:
+  version "3.22.2"
+  resolved "https://registry.npmmirror.com/core-js-compat/-/core-js-compat-3.22.2.tgz#eec621eb276518efcf718d0a6d9d042c3d0cad48"
+  integrity sha512-Fns9lU06ZJ07pdfmPMu7OnkIKGPKDzXKIiuGlSvHHapwqMUF2QnnsWwtueFZtSyZEilP0o6iUeHQwpn7LxtLUw==
+  dependencies:
+    browserslist "^4.20.2"
+    semver "7.0.0"
+
+core-js-compat@^3.20.2, core-js-compat@^3.21.0:
   version "3.22.0"
   resolved "https://registry.npmmirror.com/core-js-compat/-/core-js-compat-3.22.0.tgz#7ce17ab57c378be2c717c7c8ed8f82a50a25b3e4"
   integrity sha512-WwA7xbfRGrk8BGaaHlakauVXrlYmAIkk8PNGb1FDQS+Rbrewc3pgFfwJFRw6psmJVAll7Px9UHRYE16oRQnwAQ==
@@ -3248,6 +3256,11 @@ electron-to-chromium@^1.4.84:
   version "1.4.113"
   resolved "https://registry.npmmirror.com/electron-to-chromium/-/electron-to-chromium-1.4.113.tgz#b3425c086e2f4fc31e9e53a724c6f239e3adb8b9"
   integrity sha512-s30WKxp27F3bBH6fA07FYL2Xm/FYnYrKpMjHr3XVCTUb9anAyZn/BeZfPWgTZGAbJeT4NxNwISSbLcYZvggPMA==
+
+element-theme-chalk@^2.15.8:
+  version "2.15.8"
+  resolved "https://registry.npmmirror.com/element-theme-chalk/-/element-theme-chalk-2.15.8.tgz#608c4e62de316290ef05d6e4ff903f53c99033f8"
+  integrity sha512-Tx+YU/j4rZSxyD/NtUOBFmARGnCSe8oH1p6HxoOZzizDp8UxNuvEDENq0sB5KV8bzYCAmA4y+U1C6661p5G0Mg==
 
 element-ui@^2.15.6:
   version "2.15.8"
@@ -5395,7 +5408,7 @@ num2fraction@^1.2.2:
   resolved "https://registry.npmmirror.com/num2fraction/-/num2fraction-1.2.2.tgz#6f682b6a027a4e9ddfa4564cd2589d1d4e669ede"
   integrity sha512-Y1wZESM7VUThYY+4W+X4ySH2maqcA+p7UR+w8VWNWVAd6lwuXXWz/w/Cz43J/dI2I+PS6wD5N+bJUF+gjWvIqg==
 
-nuxt@^2.15.8:
+nuxt@2.15.8:
   version "2.15.8"
   resolved "https://registry.npmmirror.com/nuxt/-/nuxt-2.15.8.tgz#946cba46bdaaf0e3918aa27fd9ea0fed8ed303b0"
   integrity sha512-ceK3qLg/Baj7J8mK9bIxqw9AavrF+LXqwYEreBdY/a4Sj8YV4mIvhqea/6E7VTCNNGvKT2sJ/TTJjtfQ597lTA==

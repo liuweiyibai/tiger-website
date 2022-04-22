@@ -1,34 +1,33 @@
 <template>
   <div class="index-yewu__layout">
-    <div><h2 class="title">业务布局</h2></div>
+    <h2 class="title">业务布局</h2>
     <div class="description">
-      大变局时代，新技术、新产业、新业态和新模式集中涌现，加速新旧职业的更迭
+      <span
+        >大变局时代，新技术、新产业、新业态和新模式集中涌现，加速新旧职业的更迭</span
+      >
     </div>
     <div class="description highlight">
-      职虎致力于整合国内外前沿职业培训与就业资
+      <span> 职虎致力于整合国内外前沿职业培训与就业资 </span>
     </div>
-
-    <div class="service-list">
+    <!-- <div class="service-list">
       <div
         class="service-item"
         v-for="(item, index) in yeWuLayoutList"
-        :key="index"
+        :key="item.id"
       >
         <div class="item-box" :class="[`item-box-${index + 1}`]">
           <div class="image-box">
-            <img :src="item.image" alt="" />
+            <img :src="item.image" />
           </div>
           <div class="text-box">
             <h3>{{ item.title }}</h3>
             <div>
-              {{ item.text }}
+              <span>{{ item.text }}</span>
             </div>
           </div>
         </div>
       </div>
-    </div>
-
-    <div></div>
+    </div> -->
   </div>
 </template>
 <script>
@@ -43,16 +42,19 @@ export default {
           image: YeWuLayout1,
           title: '用户端',
           text: '为职业人才“选职、培训、评价、就业、发展备份',
+          id: 'random1',
         },
         {
           image: YeWuLayout2,
           title: '企业端',
           text: '为评价组织、培训机构等市场主体在技术、品牌、运营等方面赋能',
+          id: 'random2',
         },
         {
           image: YeWuLayout3,
           title: '政府端',
           text: '为政府推进人才发展体制改革、规划职业结构和制定相关政策等提供决策参考',
+          id: 'random3',
         },
       ],
     }

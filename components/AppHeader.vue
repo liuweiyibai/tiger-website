@@ -11,38 +11,89 @@
       /></nuxt-link>
     </div>
     <ul class="app-nav">
-      <li class="nav-link home__link">
+      <li
+        class="nav-link home__link"
+        :class="{
+          'active-link': getCurrentPath('/'),
+        }"
+      >
         <nuxt-link to="/">首页</nuxt-link>
       </li>
-      <li class="nav-link info-center__link">
-        <nuxt-link to="/info-center">资讯中心</nuxt-link>
+      <li
+        class="nav-link info-center__link"
+        :class="{
+          'active-link': getCurrentPath('/info-center'),
+        }"
+      >
+        <nuxt-link to="/info-center?key=1">资讯中心</nuxt-link>
         <ul class="nav-dropdown">
-          <li class="active">
+          <li
+            :class="{
+              active: getInfoCenerHigh('1'),
+            }"
+          >
             <nuxt-link to="/info-center?key=1">最新热点</nuxt-link>
           </li>
-          <li><nuxt-link to="/info-center?key=2">政策法规</nuxt-link></li>
-          <li><nuxt-link to="/info-center?key=3">活动资讯</nuxt-link></li>
+          <li
+            :class="{
+              active: getInfoCenerHigh('2'),
+            }"
+          >
+            <nuxt-link to="/info-center?key=2">政策法规</nuxt-link>
+          </li>
+          <li
+            :class="{
+              active: getInfoCenerHigh('3'),
+            }"
+          >
+            <nuxt-link to="/info-center?key=3">活动资讯</nuxt-link>
+          </li>
         </ul>
       </li>
-      <li class="nav-link new-job-standard__link">
+      <li
+        class="nav-link new-job-standard__link"
+        :class="{
+          'active-link': getCurrentPath('/new-pos-standard'),
+        }"
+      >
         <nuxt-link to="/new-pos-standard">新职业标准</nuxt-link>
       </li>
-      <li class="nav-link product-service__link">
+      <li
+        class="nav-link product-service__link"
+        :class="{
+          'active-link': getCurrentPath('/product-service'),
+        }"
+      >
         <nuxt-link to="/product-service">产品服务</nuxt-link>
         <ul class="nav-dropdown">
-          <li class="active">
+          <li :class="{ active: getSubHigh('/product-service') }">
             <nuxt-link to="/product-service">新职业培训</nuxt-link>
           </li>
-          <li><nuxt-link to="/product-service/2">职业评价</nuxt-link></li>
-          <li><nuxt-link to="/product-service/3">院校合作</nuxt-link></li>
-          <li><nuxt-link to="/product-service/4">点点招聘</nuxt-link></li>
+          <li :class="{ active: getSubHigh('/product-service/2') }">
+            <nuxt-link to="/product-service/2">职业评价</nuxt-link>
+          </li>
+          <li :class="{ active: getSubHigh('/product-service/3') }">
+            <nuxt-link to="/product-service/3">院校合作</nuxt-link>
+          </li>
+          <li :class="{ active: getSubHigh('/product-service/4') }">
+            <nuxt-link to="/product-service/4">点点招聘</nuxt-link>
+          </li>
         </ul>
       </li>
-      <li class="nav-link about__link">
-        <nuxt-link to="">关于我们</nuxt-link>
+      <li
+        class="nav-link about__link"
+        :class="{
+          'active-link': getCurrentPath('/about'),
+        }"
+      >
+        <nuxt-link to="/about">关于我们</nuxt-link>
         <ul class="nav-dropdown">
-          <li class="active"><nuxt-link to="">公司介绍</nuxt-link></li>
-          <li><nuxt-link to="">分支结构</nuxt-link></li>
+          <li :class="{ active: getSubHigh('/about') }">
+            <nuxt-link to="/about">公司介绍</nuxt-link>
+          </li>
+          <li :class="{ active: getSubHigh('/about/branch') }">
+            <nuxt-link to="/about/branch">分支结构</nuxt-link>
+          </li>
         </ul>
       </li>
     </ul>
@@ -81,6 +132,37 @@ export default {
         })
       })
     }
+  },
+  methods: {
+    getCurrentPath(path) {
+      const vm = this
+      const _path = vm.$route.path
+      if (path === '/' && _path === '/') {
+        return true
+      }
+
+      if (_path.indexOf(path) > -1 && path !== '/') {
+        return true
+      }
+      return false
+    },
+    getInfoCenerHigh(index) {
+      const vm = this
+      const path = vm.$route.path
+      const query = vm.$route.query
+      let key = query.key
+      if (key != '1' && key != '2' && key != '3') key = '1'
+      return path === '/info-center' && key == index
+    },
+
+    getSubHigh(path) {
+      const vm = this
+      const _path = vm.$route.path
+      if (_path === path && path !== '/') {
+        return true
+      }
+      return false
+    },
   },
 }
 </script>

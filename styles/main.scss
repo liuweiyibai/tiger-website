@@ -1,6 +1,5 @@
 @import './variables';
 @import './reset';
-
 body {
   overflow-x: auto;
   line-height: 1;
@@ -20,38 +19,47 @@ body {
   transition-timing-function: linear !important;
 }
 
-// 自己定义的h2样式
-._h2 {
-  height: 28px;
-  font-size: 32px;
-  font-family: PingFangSC-Medium, PingFang SC;
-  font-weight: 500;
-  color: #000000;
-  line-height: 28px;
-  margin: 0;
-}
-._h2-title {
-  i {
-    font-style: normal;
-    color: #ffd400;
-    margin-right: 6px;
-  }
-  span {
-    font-size: 16px;
+@mixin styles() {
+  // 自己定义的h2样式
+  ._h2 {
+    height: 28px;
+    font-size: 32px;
     font-family: PingFangSC-Medium, PingFang SC;
     font-weight: 500;
+    color: #000000;
+    line-height: 28px;
+    margin: 0;
+  }
+
+  ._h2-title {
+    i {
+      font-style: normal;
+      color: #ffd400;
+      margin-right: 6px;
+    }
+    span {
+      font-size: 16px;
+      font-family: PingFangSC-Medium, PingFang SC;
+      font-weight: 500;
+      color: #666666;
+      line-height: 28px;
+      margin-left: 8px;
+    }
+  }
+
+  // 自定义的p标签样式
+  ._p {
+    font-size: 16px;
+    font-family: PingFangSC-Regular, PingFang SC;
+    font-weight: 400;
     color: #666666;
     line-height: 28px;
-    margin-left: 8px;
+    margin: 0;
   }
 }
 
-// 自定义的p标签样式
-._p {
-  font-size: 16px;
-  font-family: PingFangSC-Regular, PingFang SC;
-  font-weight: 400;
-  color: #666666;
-  line-height: 28px;
-  margin: 0;
+@include respond() {
+  @include styles;
 }
+
+@include styles;

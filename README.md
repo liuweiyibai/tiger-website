@@ -70,3 +70,7 @@ More information about the usage of this directory in [the documentation](https:
 ## 蓝湖
 
 https://lanhuapp.com/web/#/item/project/detailDetach?pid=14aedd5b-8c1a-4e9b-88dc-8cb6af939f62&image_id=711ac302-9763-4120-b0c8-ae60142192c7&project_id=14aedd5b-8c1a-4e9b-88dc-8cb6af939f62&fromEditor=true
+
+## 生成 elementui 主题命令行工具
+
+![参考地址](https://www.whidy.net/elementui-customize-theme-with-primordials-is-not-defined-error/)

@@ -67,3 +67,10 @@ $breakpoint: 1440px;
     }
   }
 }
+
+@mixin bg($src) {
+  background-image: url($src);
+  background-size: 100% 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+}

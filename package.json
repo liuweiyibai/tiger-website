@@ -10,13 +10,15 @@
     "lint:prettier": "prettier --check .",
     "lint": "yarn lint:prettier",
     "lintfix": "prettier --write --list-different .",
-    "gh": "gh-pages -d ./dist"
+    "gh": "gh-pages -d ./dist",
+    "et:var": "./node_modules/.bin/et -i",
+    "et:theme": "./node_modules/.bin/et"
   },
   "dependencies": {
     "core-js": "^3.19.3",
     "element-ui": "^2.15.6",
     "lodash": "4.17.10",
-    "nuxt": "^2.15.8",
+    "nuxt": "2.15.8",
     "swiper": "2.7.6",
     "vue": "^2.6.14",
     "vue-server-renderer": "^2.6.14",
@@ -27,6 +29,7 @@
     "@nuxtjs/axios": "^5.13.6",
     "@nuxtjs/style-resources": "^1.2.1",
     "babel-plugin-component": "^1.1.1",
+    "element-theme-chalk": "^2.15.8",
     "eslint-config-prettier": "^8.3.0",
     "gh-pages": "^3.2.3",
     "postcss-px-to-viewport": "^1.1.1",

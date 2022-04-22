@@ -1,14 +1,13 @@
 export default {
   // Target: https://go.nuxtjs.dev/config-target
   target: 'static',
-
-  fallback: true,
+  fallback: false,
 
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
-    title: 'tiger-website',
+    title: '职虎',
     htmlAttrs: {
-      lang: 'zh_CN',
+      lang: 'zh-Hans',
     },
     meta: [
       { charset: 'utf-8' },
@@ -25,7 +24,7 @@ export default {
   },
 
   router: {
-    mode: 'hash',
+    // mode: 'hash',
     scrollBehavior(to, from, savedPosition) {
       return { x: 0, y: 0 }
     },
@@ -101,6 +100,19 @@ export default {
           landscapeWidth: 1440,
         },
       },
+    },
+    vendor: ['element-ui'],
+    babel: {
+      plugins: [
+        [
+          'component',
+          {
+            libraryName: 'element-ui',
+            styleLibraryName: '~assets/theme',
+          },
+        ],
+      ],
+      comments: true,
     },
   },
 }
