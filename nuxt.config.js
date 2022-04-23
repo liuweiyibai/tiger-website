@@ -1,8 +1,12 @@
 export default {
   // Target: https://go.nuxtjs.dev/config-target
   target: 'static',
-  fallback: false,
-
+  fallback: true,
+  loading: {
+    color: '#ffd400',
+    height: '2px',
+    throttle: 0,
+  },
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
     title: '职虎',

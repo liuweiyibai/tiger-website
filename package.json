@@ -38,7 +38,7 @@
     "sass-loader": "10"
   },
   "browserslist": [
-    ">0.1%",
+    "> 0.1%",
     "not dead",
     "not op_mini all",
     "last 3 version",
