@@ -12,6 +12,19 @@
           </li>
         </ul>
       </div>
+      <el-pagination
+        slot="footer"
+        @size-change="handleSizeChange"
+        @current-change="handleCurrentChange"
+        :current-page.sync="currentPage"
+        :page-size="100"
+        layout="total, sizes, prev, pager, next, jumper"
+        :total="1000"
+        :page-sizes="[100, 200, 300, 400]"
+        class="app-pagination"
+        background
+      >
+      </el-pagination>
     </InfoCenterLayout>
   </div>
 </template>
@@ -21,6 +34,13 @@ export default {
   layout: 'app-layout',
   galleryData: {
     type: 'info-center',
+  },
+  data() {
+    return { currentPage: 0 }
+  },
+  methods: {
+    handleSizeChange() {},
+    handleCurrentChange() {},
   },
 }
 </script>

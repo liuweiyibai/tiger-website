@@ -4,11 +4,10 @@
       <el-breadcrumb separator-class="el-icon-arrow-right">
         <el-breadcrumb-item :to="{ path: '/' }">首页</el-breadcrumb-item>
         <el-breadcrumb-item>新职业标准</el-breadcrumb-item>
-        <el-breadcrumb-item>金融文娱</el-breadcrumb-item>
+        <el-breadcrumb-item>{{ title }}</el-breadcrumb-item>
       </el-breadcrumb>
-
       <div class="title-box">
-        <span>活动资讯</span>
+        <span>{{ title }}</span>
       </div>
     </div>
     <slot></slot>
@@ -20,6 +19,23 @@
 <script>
 export default {
   name: 'InfoCenterLayout',
+  computed: {
+    title() {
+      const vm = this
+      const $route = vm.$route
+      const { key } = $route.query
+      if (!key || key === '1') {
+        return '最新热点'
+      }
+      if (key === '2') {
+        return '政策法规'
+      }
+      if (key === '3') {
+        return '活动资讯'
+      }
+      return '最新热点'
+    },
+  },
 }
 </script>
 
@@ -32,6 +48,8 @@ export default {
       width: 100%;
       height: 94px;
       background: #ffffff;
+      padding-top: 30px;
+      box-sizing: border-box;
     }
   }
 }

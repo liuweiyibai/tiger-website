@@ -9,7 +9,7 @@
     <div class="description highlight">
       <span> 职虎致力于整合国内外前沿职业培训与就业资 </span>
     </div>
-    <!-- <div class="service-list">
+    <div class="service-list">
       <div
         class="service-item"
         v-for="(item, index) in yeWuLayoutList"
@@ -27,7 +27,7 @@
           </div>
         </div>
       </div>
-    </div> -->
+    </div>
   </div>
 </template>
 <script>

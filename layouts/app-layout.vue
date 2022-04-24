@@ -2,7 +2,7 @@
   <div>
     <AppHeader />
     <AppGallery :galleryData="galleryData" />
-    <Nuxt />
+    <Nuxt keep-alive :keep-alive-props="{ include: ['NewPosStandardPage'] }" />
     <AppFooter />
   </div>
 </template>

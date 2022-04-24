@@ -2,6 +2,9 @@ export default {
   // Target: https://go.nuxtjs.dev/config-target
   target: 'static',
   fallback: true,
+  generate: {
+    fallback: '404.html',
+  },
   loading: {
     color: '#ffd400',
     height: '2px',
@@ -28,9 +31,8 @@ export default {
   },
 
   router: {
-    // mode: 'hash',
     scrollBehavior(to, from, savedPosition) {
-      return { x: 0, y: 0 }
+      if (from.path !== to.path) return { x: 0, y: 0 }
     },
   },
 
@@ -47,6 +49,7 @@ export default {
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
   plugins: [
+    { src: '@/plugins/raf.js', ssr: false },
     { src: '@/plugins/element-ui', ssr: true },
     { src: '@/plugins/swiper', ssr: false },
   ],

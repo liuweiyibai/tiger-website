@@ -10,7 +10,7 @@
         <el-tabs v-model="activeName" @tab-click="handleClick">
           <el-tab-pane
             v-for="(item, index) in categories"
-            :name="'first' + index"
+            :name="index + ''"
             :label="item.title"
             :key="index"
           />
@@ -25,41 +25,66 @@
   </NewPosStandardLayout>
 </template>
 <script>
+const categories = [
+  {
+    title: '信息技术',
+  },
+  {
+    title: '生产制造',
+  },
+  {
+    title: '商业服务',
+  },
+  {
+    title: '卫生健康',
+  },
+  {
+    title: '建筑环保',
+  },
+  {
+    title: '金融文娱',
+  },
+  {
+    title: '交通物流',
+  },
+  {
+    title: '其他',
+  },
+]
+
+function getCategory(query) {
+  let category = '0'
+  if (query.category) {
+    const _category = parseInt(query.category)
+    if (!isNaN(_category) && _category < categories.length) {
+      category = _category + ''
+    }
+  }
+  return category
+}
 export default {
   name: 'NewPosStandardPage',
   layout: 'app-layout',
   galleryData: {
     type: 'new-pos-standard',
   },
+  asyncData({ query }) {
+    const category = getCategory(query)
+    return { category }
+  },
+
   data() {
+    const { query } = this.$route
+    const category = getCategory(query)
     return {
-      categories: [
-        {
-          title: '信息技术',
-        },
-        {
-          title: '生产制造',
-        },
-        {
-          title: '商业服务',
-        },
-        {
-          title: '卫生健康',
-        },
-        {
-          title: '建筑环保',
-        },
-        {
-          title: '金融文娱',
-        },
-        {
-          title: '交通物流',
-        },
-        {
-          title: '其他',
-        },
-      ],
+      categories,
+      activeName: category,
     }
+  },
+  methods: {
+    handleClick(args) {
+      this.$router.push({ query: { category: args.name } })
+    },
   },
 }
 </script>

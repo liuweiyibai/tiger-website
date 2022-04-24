@@ -12,25 +12,25 @@
     <div class="footer-2">
       <ul class="footer-2-1">
         <li class="title">资讯中心</li>
-        <li><nuxt-link to="">最新热点</nuxt-link></li>
-        <li><nuxt-link to="">政策法规</nuxt-link></li>
-        <li><nuxt-link to="">活动资讯</nuxt-link></li>
+        <li><nuxt-link to="/info-center?key=1">最新热点</nuxt-link></li>
+        <li><nuxt-link to="/info-center?key=2">政策法规</nuxt-link></li>
+        <li><nuxt-link to="/info-center?key=3">活动资讯</nuxt-link></li>
       </ul>
       <ul class="footer-2-2">
         <li class="title">新职业标准</li>
-        <li><nuxt-link to="">新标准</nuxt-link></li>
+        <li><nuxt-link to="/new-pos-standard">新标准</nuxt-link></li>
       </ul>
       <ul class="footer-2-3">
         <li class="title">产品服务</li>
-        <li><nuxt-link to="">新职业培训</nuxt-link></li>
-        <li><nuxt-link to="">职业评价支持</nuxt-link></li>
-        <li><nuxt-link to="">院校合作</nuxt-link></li>
-        <li><nuxt-link to="">点点招聘</nuxt-link></li>
+        <li><nuxt-link to="/product-service">新职业培训</nuxt-link></li>
+        <li><nuxt-link to="/product-service/2">职业评价支持</nuxt-link></li>
+        <li><nuxt-link to="/product-service/3">院校合作</nuxt-link></li>
+        <li><nuxt-link to="/product-service/4">点点招聘</nuxt-link></li>
       </ul>
       <ul class="footer-2-4">
         <li class="title">关于我们</li>
-        <li><nuxt-link to="">公司介绍</nuxt-link></li>
-        <li><nuxt-link to="">分支机构</nuxt-link></li>
+        <li><nuxt-link to="/about">公司介绍</nuxt-link></li>
+        <li><nuxt-link to="/about/branch">分支机构</nuxt-link></li>
       </ul>
       <ul class="footer-2-5">
         <li class="title">了解更多</li>

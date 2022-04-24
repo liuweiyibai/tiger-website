@@ -56,6 +56,22 @@ body {
     line-height: 28px;
     margin: 0;
   }
+
+  .app-pagination.el-pagination {
+    text-align: center;
+    &.is-background .btn-prev,
+    &.is-background .btn-next,
+    &.is-background .el-pager li {
+      background-color: unset;
+      border: 1px solid #d9d9d9;
+    }
+
+    &.is-background .el-pager li:not(.disabled).active {
+      background-color: unset;
+      border-color: $primary-color;
+      color: $primary-color;
+    }
+  }
 }
 
 @include respond() {

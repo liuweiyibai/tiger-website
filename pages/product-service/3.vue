@@ -14,8 +14,11 @@
         合作方向<span><i>/</i>ABOUT HRTIGER</span>
       </h2>
       <div class="box">
-        <ul>
-          <li v-for="item in 8" :key="item"></li>
+        <ul ref="uls">
+          <li v-for="item in 8" :key="item">
+            <div class="normal">{{ item }}normal</div>
+            <div class="info">{{ item }}info</div>
+          </li>
         </ul>
       </div>
     </div>
@@ -28,40 +31,231 @@ export default {
   galleryData: {
     type: 'product-service-3',
   },
+  mounted() {
+    this.init()
+  },
+  methods: {
+    init() {
+      const vm = this
+      if (process.browser) {
+        const uls = vm.$refs.uls
+        const nodes = [].slice.call(uls.querySelectorAll('li'), 0)
+        const directions = { 0: 'top', 1: 'right', 2: 'bottom', 3: 'left' }
+        const classNames = ['in', 'out']
+          .map((p) => Object.values(directions).map((d) => `${p}-${d}`))
+          .reduce((a, b) => a.concat(b))
+
+        const getDirectionKey = (ev, node) => {
+          const { width, height, top, left } = node.getBoundingClientRect()
+          const l = ev.pageX - (left + window.pageXOffset)
+          const t = ev.pageY - (top + window.pageYOffset)
+          const x = l - (width / 2) * (width > height ? height / width : 1)
+          const y = t - (height / 2) * (height > width ? width / height : 1)
+          return Math.round(Math.atan2(y, x) / 1.57079633 + 5) % 4
+        }
+
+        class Item {
+          constructor(element) {
+            this.element = element
+            this.element.addEventListener('mouseover', (ev) =>
+              this.update(ev, 'in')
+            )
+            this.element.addEventListener('mouseout', (ev) =>
+              this.update(ev, 'out')
+            )
+          }
+
+          update(ev, prefix) {
+            this.element.classList.remove(...classNames)
+            this.element.classList.add(
+              `${prefix}-${directions[getDirectionKey(ev, this.element)]}`
+            )
+          }
+        }
+
+        nodes.forEach((node) => new Item(node))
+      }
+    },
+  },
 }
 </script>
 
 <style lang="scss" scoped>
-.product-service-3 {
-  width: 990px;
-  margin: 0 auto;
-  box-sizing: border-box;
-  padding-top: 112px;
-  padding-bottom: 100px;
-  ._h2-title {
-    margin-bottom: 40px;
+@mixin styles() {
+  @keyframes in-top {
+    from {
+      transform: rotate3d(-1, 0, 0, 90deg);
+    }
+
+    to {
+      transform: rotate3d(0, 0, 0, 0deg);
+    }
   }
-  .p-1 {
-    margin-bottom: 30px;
+
+  @keyframes in-right {
+    from {
+      transform: rotate3d(0, -1, 0, 90deg);
+    }
+
+    to {
+      transform: rotate3d(0, 0, 0, 0deg);
+    }
   }
-  .p-2 {
-    margin-bottom: 30px;
+
+  @keyframes in-bottom {
+    from {
+      transform: rotate3d(1, 0, 0, 90deg);
+    }
+
+    to {
+      transform: rotate3d(0, 0, 0, 0deg);
+    }
   }
-  .p-3 {
-    margin-bottom: 84px;
+
+  @keyframes in-left {
+    from {
+      transform: rotate3d(0, 1, 0, 90deg);
+    }
+
+    to {
+      transform: rotate3d(0, 0, 0, 0deg);
+    }
   }
-  .box {
-    ul {
-      @include clearfix;
-      margin: -25px;
-      li {
-        width: 470px;
-        height: 310px;
-        background: red;
-        margin: 25px;
-        float: left;
+
+  @keyframes out-top {
+    from {
+      transform: rotate3d(0, 0, 0, 0deg);
+    }
+
+    to {
+      transform: rotate3d(-1, 0, 0, 104deg);
+    }
+  }
+
+  @keyframes out-right {
+    from {
+      transform: rotate3d(0, 0, 0, 0deg);
+    }
+
+    to {
+      transform: rotate3d(0, -1, 0, 104deg);
+    }
+  }
+
+  @keyframes out-bottom {
+    from {
+      transform: rotate3d(0, 0, 0, 0deg);
+    }
+
+    to {
+      transform: rotate3d(1, 0, 0, 104deg);
+    }
+  }
+
+  @keyframes out-left {
+    from {
+      transform: rotate3d(0, 0, 0, 0deg);
+    }
+
+    to {
+      transform: rotate3d(0, 1, 0, 104deg);
+    }
+  }
+
+  .product-service-3 {
+    width: 990px;
+    margin: 0 auto;
+    box-sizing: border-box;
+    padding-top: 112px;
+    padding-bottom: 100px;
+    ._h2-title {
+      margin-bottom: 40px;
+    }
+    .p-1 {
+      margin-bottom: 30px;
+    }
+    .p-2 {
+      margin-bottom: 30px;
+    }
+    .p-3 {
+      margin-bottom: 84px;
+    }
+    .box {
+      ul {
+        @include clearfix;
+        margin: -25px;
+        li {
+          width: 470px;
+          height: 310px;
+          margin: 25px;
+          float: left;
+          position: relative;
+          perspective: 1900px;
+          overflow: hidden;
+          .info {
+            transform: rotate3d(1, 0, 0, 90deg);
+            width: 100%;
+            height: 100%;
+            padding: 20px;
+            position: absolute;
+            top: 0;
+            left: 0;
+            pointer-events: none;
+            background: #ffd400;
+            box-sizing: border-box;
+          }
+          .normal {
+            width: 100%;
+            height: 100%;
+            background-color: #ecf0f1;
+            color: rgba(52, 73, 94, 0.6);
+            box-shadow: inset 0 2px 20px #e6ebed;
+            text-align: center;
+            font-size: 50px;
+          }
+          &.in-top .info {
+            transform-origin: 50% 0%;
+            animation: in-top 300ms ease 0ms 1 forwards;
+          }
+
+          &.in-right .info {
+            transform-origin: 100% 0%;
+            animation: in-right 300ms ease 0ms 1 forwards;
+          }
+
+          &.in-bottom .info {
+            transform-origin: 50% 100%;
+            animation: in-bottom 300ms ease 0ms 1 forwards;
+          }
+
+          &.in-left .info {
+            transform-origin: 0% 0%;
+            animation: in-left 300ms ease 0ms 1 forwards;
+          }
+
+          &.out-top .info {
+            transform-origin: 50% 0%;
+            animation: out-top 300ms ease 0ms 1 forwards;
+          }
+
+          &.out-right .info {
+            transform-origin: 100% 50%;
+            animation: out-right 300ms ease 0ms 1 forwards;
+          }
+
+          &.out-bottom .info {
+            transform-origin: 50% 100%;
+            animation: out-bottom 300ms ease 0ms 1 forwards;
+          }
+
+          &.out-left .info {
+            transform-origin: 0% 0%;
+            animation: out-left 300ms ease 0ms 1 forwards;
+          }
+        }
       }
     }
   }
 }
+@include styles();
 </style>

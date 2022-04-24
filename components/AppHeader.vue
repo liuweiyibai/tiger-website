@@ -212,7 +212,7 @@ export default {
         position: relative;
         border-bottom: 4px solid transparent;
         height: 100%;
-        transition: all linear 0.3s;
+        transition: all 0.3s;
         text-align: center;
 
         &.home__link {
@@ -281,10 +281,9 @@ export default {
           top: 80px;
           left: -25px;
           right: -25px;
-          transition: all linear 0.3s;
+          transition: all 0.3s;
           height: 0;
           overflow: hidden;
-
           li {
             font-size: 14px;
             font-family: PingFangSC-Light, PingFang SC;
