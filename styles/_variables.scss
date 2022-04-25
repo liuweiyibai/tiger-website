@@ -23,6 +23,13 @@ $breakpoint: 1440px;
     box-sizing: border-box;
     padding-top: 18px;
     background: #ffffff;
+    &.fixed {
+      position: fixed;
+      top: 20px;
+      left: 0;
+      right: 0;
+      z-index: 888;
+    }
     .el-breadcrumb {
       margin-left: 119px;
       font-size: 18px;
@@ -53,6 +60,13 @@ $breakpoint: 1440px;
       bottom: 0;
       position: absolute;
       transform: translateX(-50%);
+    }
+    &.fixed {
+      position: fixed;
+      top: 10px;
+      left: 0;
+      right: 0;
+      z-index: 888;
     }
 
     .title-box {

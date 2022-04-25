@@ -5,7 +5,7 @@
   </div>
 </template>
 <script>
-import IndexImage from '@/assets/images/头图@3x.png'
+import IndexImage from '@/assets/images/头图分层-1.jpg'
 import infoCenterImage from '@/assets/images/资讯中心头图@3x.png'
 import NewPosStandardImage from '@/assets/images/新职业标准@3x.png'
 import ProductService1Image from '@/assets/images/产品服务-新职业培训@3x.png'
@@ -99,6 +99,7 @@ export default {
   .app-gallery {
     height: 470px;
     margin-top: 80px;
+    overflow: hidden;
     position: relative;
     &.min-height {
       height: 384px;
@@ -106,6 +107,7 @@ export default {
     img {
       width: 100%;
       height: 100%;
+      animation: scale 10s infinite both;
     }
   }
 }

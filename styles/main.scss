@@ -19,6 +19,20 @@ body {
   transition-timing-function: linear !important;
 }
 
+@keyframes scale {
+  0% {
+    transform: scale(1);
+  }
+
+  50% {
+    transform: scale(1.2);
+  }
+
+  100% {
+    transform: scale(1);
+  }
+}
+
 @mixin styles() {
   // 自己定义的h2样式
   ._h2 {
@@ -70,6 +84,44 @@ body {
       background-color: unset;
       border-color: $primary-color;
       color: $primary-color;
+    }
+  }
+  .aritle {
+    .norm-content-title {
+      height: 18px;
+      font-size: 18px;
+      font-family: PingFangSC-Medium, PingFang SC;
+      font-weight: 500;
+      color: #333333;
+      line-height: 18px;
+      margin-bottom: 32px;
+      position: relative;
+      padding-left: 11px;
+      &::before {
+        content: '';
+        display: block;
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 4px;
+        height: 18px;
+        background: #ffd400;
+        border-radius: 2px;
+      }
+    }
+    strong {
+      font-weight: normal;
+    }
+
+    div p > strong span,
+    div p > span {
+      font-size: 16px !important;
+      font-family: PingFangSC-Medium, PingFang SC;
+      font-weight: 500;
+      color: #333333 !important;
+    }
+    p {
+      line-height: 28px;
     }
   }
 }

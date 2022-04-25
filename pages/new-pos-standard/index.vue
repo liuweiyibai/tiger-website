@@ -1,16 +1,23 @@
 <template>
   <NewPosStandardLayout class="new-pos-standard-page">
-    <div class="header" slot="header">
+    <div
+      class="header"
+      slot="header"
+      ref="fixedHeaderRef"
+      :class="{
+        fixed: titleBarFixed,
+      }"
+    >
       <el-breadcrumb separator-class="el-icon-arrow-right">
         <el-breadcrumb-item :to="{ path: '/' }">首页</el-breadcrumb-item>
         <el-breadcrumb-item>新职业标准</el-breadcrumb-item>
-        <el-breadcrumb-item>金融文娱</el-breadcrumb-item>
+        <el-breadcrumb-item>{{ activeName }}</el-breadcrumb-item>
       </el-breadcrumb>
       <div class="tabs">
         <el-tabs v-model="activeName" @tab-click="handleClick">
           <el-tab-pane
             v-for="(item, index) in categories"
-            :name="index + ''"
+            :name="item.title"
             :label="item.title"
             :key="index"
           />
@@ -19,12 +26,22 @@
     </div>
     <div class="container">
       <ul>
-        <li></li>
+        <li v-for="(item, index) in list" :key="index">
+          <nuxt-link :to="`/new-pos-standard/${item.title}`">
+            <div class="img-box">
+              <img :src="item.img" alt="" />
+            </div>
+            <p class="title">{{ item.title }}</p>
+            <p class="time">{{ item.time }}</p>
+          </nuxt-link>
+        </li>
       </ul>
     </div>
   </NewPosStandardLayout>
 </template>
 <script>
+import scrollMixin from '@/mixins/scroll'
+import newPosStandardJson from '@/data/new-pos-standard.json'
 const categories = [
   {
     title: '信息技术',
@@ -53,11 +70,13 @@ const categories = [
 ]
 
 function getCategory(query) {
-  let category = '0'
+  let category = '信息技术'
   if (query.category) {
-    const _category = parseInt(query.category)
-    if (!isNaN(_category) && _category < categories.length) {
-      category = _category + ''
+    const _category = categories.find(
+      (t) => t.title === decodeURIComponent(query.category)
+    )
+    if (_category) {
+      category = _category.title
     }
   }
   return category
@@ -65,6 +84,7 @@ function getCategory(query) {
 export default {
   name: 'NewPosStandardPage',
   layout: 'app-layout',
+  mixins: [scrollMixin('fixedHeaderRef')],
   galleryData: {
     type: 'new-pos-standard',
   },
@@ -80,6 +100,14 @@ export default {
       categories,
       activeName: category,
     }
+  },
+  computed: {
+    list() {
+      const vm = this
+      const activeName = vm.activeName
+      const list = newPosStandardJson.filter((t) => t.category === activeName)
+      return list
+    },
   },
   methods: {
     handleClick(args) {
@@ -141,12 +169,41 @@ export default {
       li {
         width: 308px;
         height: 292px;
-        background: red;
+        overflow: hidden;
         float: left;
         margin: 18px 8px;
-        .image-box {
+        background: #ffffff;
+        position: relative;
+        .img-box {
           width: 308px;
           height: 192px;
+          margin-bottom: 13px;
+          img {
+            width: 100%;
+            height: 100%;
+          }
+        }
+        p {
+          margin: 0;
+          padding-left: 14px;
+        }
+        .title {
+          height: 22px;
+          font-size: 16px;
+          font-family: PingFangSC-Regular, PingFang SC;
+          font-weight: 400;
+          color: #333333;
+          line-height: 22px;
+          margin-bottom: 30px;
+        }
+        .time {
+          font-size: 13px;
+          font-family: PingFangSC-Regular, PingFang SC;
+          font-weight: 400;
+          color: #999999;
+          line-height: 18px;
+          bottom: 14px;
+          position: absolute;
         }
       }
     }

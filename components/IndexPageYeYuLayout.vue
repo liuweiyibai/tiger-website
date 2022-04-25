@@ -7,7 +7,7 @@
       >
     </div>
     <div class="description highlight">
-      <span> 职虎致力于整合国内外前沿职业培训与就业资 </span>
+      <span>职虎致力于整合国内外前沿职业培训与就业资源</span>
     </div>
     <div class="service-list">
       <div
@@ -127,6 +127,7 @@ export default {
           .image-box {
             height: 210px;
             width: 100%;
+            transition: all 0.6s;
             img {
               width: 100%;
               height: 100%;
@@ -138,6 +139,7 @@ export default {
             padding-top: 56px;
             padding-left: 47px;
             box-sizing: border-box;
+            transition: all 0.6s;
             h3 {
               width: 72px;
               height: 33px;
@@ -186,6 +188,10 @@ export default {
               height: 320px;
               padding-top: 91px;
               padding-left: 35px;
+              h3,
+              div {
+                color: #000000;
+              }
             }
           }
         }

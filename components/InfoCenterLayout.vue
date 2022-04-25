@@ -1,6 +1,12 @@
 <template>
   <div class="info-center__layout">
-    <div class="header">
+    <div
+      class="header"
+      ref="fixedHeaderRef"
+      :class="{
+        fixed: titleBarFixed,
+      }"
+    >
       <el-breadcrumb separator-class="el-icon-arrow-right">
         <el-breadcrumb-item :to="{ path: '/' }">首页</el-breadcrumb-item>
         <el-breadcrumb-item>新职业标准</el-breadcrumb-item>
@@ -17,8 +23,11 @@
   </div>
 </template>
 <script>
+import scrollMixin from '@/mixins/scroll'
+
 export default {
   name: 'InfoCenterLayout',
+  mixins: [scrollMixin('fixedHeaderRef')],
   computed: {
     title() {
       const vm = this
@@ -43,6 +52,7 @@ export default {
 @mixin styles() {
   .info-center__layout {
     width: 100%;
+    overflow: visible;
     @include header-with-breadcrumb-title;
     .footer {
       width: 100%;

@@ -15,9 +15,15 @@
       </h2>
       <div class="box">
         <ul ref="uls">
-          <li v-for="item in 8" :key="item">
-            <div class="normal">{{ item }}normal</div>
-            <div class="info">{{ item }}info</div>
+          <li v-for="(item, index) in list" :key="index">
+            <div class="normal">
+              <span>{{ item.title }}</span>
+              <img :src="item.img" alt="" />
+            </div>
+            <div class="info">
+              <h3>{{ item.title }}</h3>
+              <p>{{ item.des }}</p>
+            </div>
           </li>
         </ul>
       </div>
@@ -26,10 +32,66 @@
 </template>
 
 <script>
+import image1 from '@/assets/images/院校合作-新职业人才培训基地@3x.png'
+import image2 from '@/assets/images/院校合作-双师型@3x.png'
+import image3 from '@/assets/images/院校合作-技能人才@3x.png'
+import image4 from '@/assets/images/院校合作-就业指导@3x.png'
+import image5 from '@/assets/images/院校合作-创业人才@3x.png'
+import image6 from '@/assets/images/院校合作-新职业领域@3x.png'
+import image7 from '@/assets/images/院校合作-技能大赛@3x.png'
+import image8 from '@/assets/images/院校合作-教学资源@3x.png'
+const platformCooperation = [
+  {
+    title: '新职业人才培训基地',
+    des: '职虎联合地方政府、院校、社会培训机构及企业等共建新职业高技能人才培训（评价）基地，逐渐完善职业实操实训所需的设施设备，打造成为服务地区产业转型发展的新职业人才培养摇篮。',
+    img: image1,
+  },
+  {
+    title: '“双师型”师资团队',
+    des: '校企合作建立一支既有突出教学能力、又有丰富实践操作能力及应用经验的高素质种子师资队伍，重点突出“双师”素质结构，建立高层次新职业师资人才培养计划，打造教师个人IP，塑造名师大师。',
+
+    img: image2,
+  },
+  {
+    title: '技能人才评价基地',
+    des: '以院校及社会培训机构为培训主体，以新职业人才培训基地为培训载体，校企合作向当地人社厅联合申报新职业社会培训评价组织，面向在校生及社会人员开展新职业技能等级评价工作。',
+    img: image3,
+  },
+  {
+    title: '就业指导服务平台',
+    des: '点点招聘是职虎旗下专注于就业服务的品牌，点点招聘以精准就业结果为导向，通过运用AI技术、大数据技术快速进行人岗匹配，为学员提供个性化、区域化、多元化的终身职业发展服务。',
+    img: image4,
+  },
+  {
+    title: '创业人才培养计划',
+    des: '职虎联合行业企业与院校共同实施创业人才培养计划，进行针对性的创业指导，协助打造创业团队，助力孵化创业项目，并组织学员参加中国创新创业大赛，达到以赛促教、以赛促训、以赛促融的目的。',
+    img: image5,
+  },
+  {
+    title: '新职业领域产业学院',
+    des: '职虎联合各行业头部企业与院校多方共建大健康、直播、大数据等新职业领域产业学院，实现深度产教融合，培养一批新时期国际所认、社会所需、企业所求的新职业高技能人才。',
+    img: image6,
+  },
+  {
+    title: '技能大赛集训基地',
+    des: '职虎与院校共同申办地区新职业行业大赛、人社部职业技能大赛新职业相关赛项。新职业人才培训基地申报地区大赛集训基地，承接地区及周边院校学生及企业职工等参加各类技能大赛等集训服务。',
+    img: image7,
+  },
+  {
+    title: '教学资源研发体系',
+    des: '职虎与院校共同组建教学资源研发团队，持续开发最新的教学案例、教学场景及实操项目等，深入研究申报新职业，开发国家职业标准、专业标准、考核标准，研发课程和教材体系。',
+    img: image8,
+  },
+]
 export default {
   layout: 'app-layout',
   galleryData: {
     type: 'product-service-3',
+  },
+  data() {
+    return {
+      list: platformCooperation,
+    }
   },
   mounted() {
     this.init()
@@ -203,15 +265,49 @@ export default {
             pointer-events: none;
             background: #ffd400;
             box-sizing: border-box;
+            padding: 40px 26px 0;
+            h3 {
+              height: 45px;
+              font-size: 32px;
+              font-family: PingFangSC-Medium, PingFang SC;
+              font-weight: 500;
+              color: #000000;
+              line-height: 45px;
+              margin: 0;
+              text-align: center;
+              margin-bottom: 15px;
+            }
+            p {
+              margin: 0;
+              font-size: 18px;
+              font-family: PingFangSC-Regular, PingFang SC;
+              font-weight: 400;
+              color: #333333;
+              line-height: 36px;
+            }
           }
           .normal {
             width: 100%;
             height: 100%;
-            background-color: #ecf0f1;
-            color: rgba(52, 73, 94, 0.6);
-            box-shadow: inset 0 2px 20px #e6ebed;
+            height: 310px;
+            line-height: 310px;
             text-align: center;
-            font-size: 50px;
+            font-size: 32px;
+            font-family: PingFangSC-Medium, PingFang SC;
+            font-weight: 500;
+            color: #ffffff;
+            position: relative;
+            span {
+              z-index: 1;
+            }
+            > img {
+              position: absolute;
+              left: 0;
+              right: 0;
+              width: 100%;
+              height: 100%;
+              z-index: -1;
+            }
           }
           &.in-top .info {
             transform-origin: 50% 0%;

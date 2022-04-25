@@ -145,18 +145,20 @@ export default {
     .box {
       box-sizing: border-box;
       padding: 0 68px;
-      overflow: hidden;
-      margin-bottom: 50px;
+      // overflow: hidden;
+      margin-bottom: 25px;
     }
     .col {
       width: 100%;
-      height: 70px;
+      height: 100px;
       overflow: hidden;
       box-sizing: border-box;
+      padding-top: 15px;
     }
     .swiper-slide {
       box-sizing: border-box;
       padding-right: 26px;
+      height: 70px !important;
       img {
         width: 100%;
         height: 100%;

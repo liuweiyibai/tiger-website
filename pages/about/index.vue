@@ -168,6 +168,7 @@ export default {
           margin-right: 60px;
           float: left;
           margin-top: 21px;
+          width: 87px;
         }
         .des-box {
           font-size: 24px;

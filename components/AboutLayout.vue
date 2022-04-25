@@ -1,6 +1,12 @@
 <template>
   <div class="about-page">
-    <div class="header">
+    <div
+      class="header"
+      ref="fixedHeaderRef"
+      :class="{
+        fixed: titleBarFixed,
+      }"
+    >
       <el-breadcrumb separator-class="el-icon-arrow-right">
         <el-breadcrumb-item :to="{ path: '/' }">首页</el-breadcrumb-item>
         <el-breadcrumb-item>关于我们</el-breadcrumb-item>
@@ -15,8 +21,10 @@
 </template>
 
 <script>
+import scrollMixin from '@/mixins/scroll'
 export default {
   name: 'AboutLayout',
+  mixins: [scrollMixin('fixedHeaderRef')],
   props: {
     title: {
       type: String,
