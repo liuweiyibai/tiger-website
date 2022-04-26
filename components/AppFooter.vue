@@ -5,7 +5,12 @@
         <img src="~@/assets/images/logo_底部@3x.png" alt="" />
       </div>
       <div class="footer1-address">
-        <span>总部地址</span>北京市东城区和平里东街7号
+        <span>总部地址</span>
+        <a
+          target="_blank"
+          href="https://map.baidu.com/search/%E5%8C%97%E4%BA%AC%E5%B8%82%E4%B8%9C%E5%9F%8E%E5%8C%BA%E5%92%8C%E5%B9%B3%E9%87%8C%E4%B8%9C%E8%A1%977%E5%8F%B7/@12961210.125,4832401,19z?querytype=s&da_src=shareurl&wd=%E5%8C%97%E4%BA%AC%E5%B8%82%E4%B8%9C%E5%9F%8E%E5%8C%BA%E5%92%8C%E5%B9%B3%E9%87%8C%E4%B8%9C%E8%A1%977%E5%8F%B7&c=131&src=0&pn=0&sug=0&l=13&b=(12933499,4819860;12994939,4850868)&from=webmap&biz_forward=%7B%22scaler%22:1,%22styles%22:%22pl%22%7D&device_ratio=1"
+          >北京市东城区和平里东街7号</a
+        >
       </div>
     </div>
     <div class="footer-line"></div>
@@ -36,11 +41,15 @@
         <li class="title">了解更多</li>
         <li class="box-content">
           <div class="box">
-            <div class="image"></div>
+            <div class="image">
+              <img src="~@/assets/images/职虎公众号.png" alt="" />
+            </div>
             <span class="text">关注新职业动态</span>
           </div>
           <div class="box">
-            <div class="image"></div>
+            <div class="image">
+              <img src="~@/assets/images/职虎App.png" alt="" />
+            </div>
             <span class="text">下载职虎APP</span>
           </div>
         </li>
@@ -141,10 +150,13 @@
           .image {
             width: 110px;
             height: 110px;
-            background: #ffffff;
             border-radius: 2px;
             &:first-child {
               margin-right: 44px;
+            }
+            img {
+              width: 100%;
+              height: 100%;
             }
           }
           .text {

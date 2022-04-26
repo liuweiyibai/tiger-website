@@ -11,6 +11,9 @@
         <el-breadcrumb-item :to="{ path: '/' }">首页</el-breadcrumb-item>
         <el-breadcrumb-item>新职业标准</el-breadcrumb-item>
         <el-breadcrumb-item>{{ title }}</el-breadcrumb-item>
+        <el-breadcrumb-item v-if="detailName" class="max-width-175">{{
+          detailName
+        }}</el-breadcrumb-item>
       </el-breadcrumb>
       <div class="title-box">
         <span>{{ title }}</span>
@@ -28,6 +31,11 @@ import scrollMixin from '@/mixins/scroll'
 export default {
   name: 'InfoCenterLayout',
   mixins: [scrollMixin('fixedHeaderRef')],
+  props: {
+    detailName: {
+      default: false,
+    },
+  },
   computed: {
     title() {
       const vm = this

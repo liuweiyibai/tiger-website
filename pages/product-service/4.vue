@@ -18,7 +18,7 @@
           <h3 class="h3-title">优势</h3>
           <div class="adv-box">
             <ul>
-              <li v-for="(item, index) in bAdvs">
+              <li v-for="(item, index) in bAdvs" :key="index">
                 <p class="title">{{ item.title }}</p>
                 <p class="des">{{ item.des }}</p>
                 <div class="img">
@@ -32,7 +32,9 @@
             <ul>
               <li>
                 <p>扫描关注点点速聘公众号</p>
-                <div></div>
+                <div>
+                  <img src="~@/assets/images/点点速聘公众号二维码.jpg" alt="" />
+                </div>
               </li>
               <li>
                 <p>下载点点速聘试用</p>
@@ -68,7 +70,9 @@
             <ul>
               <li>
                 <p>扫描关注点点速聘公众号</p>
-                <div></div>
+                <div>
+                  <img src="~@/assets/images/点点速聘公众号二维码.jpg" alt="" />
+                </div>
               </li>
               <li>
                 <p>下载点点速聘试用</p>
@@ -102,9 +106,13 @@ export default {
   galleryData: {
     type: 'product-service-4',
   },
+  head() {
+    return {
+      title: `点点招聘-职虎`,
+    }
+  },
   data() {
     return {
-      res: { default: '我现在是控诉的' },
       bAdvs: [
         {
           title: '简化流程',
@@ -141,11 +149,6 @@ export default {
         },
       ],
     }
-  },
-  asyncData({ $axios }) {
-    return $axios.get(`/test`).then((res) => {
-      return { res: res.data }
-    })
   },
 }
 </script>
@@ -187,7 +190,7 @@ export default {
           background: #ffd400;
           position: absolute;
           left: -13px;
-          top: 4px;
+          top: 3px;
         }
       }
       .p {
@@ -224,11 +227,11 @@ export default {
       }
       .p {
         margin-top: 24px;
-        margin-bottom: 50px;
+        margin-bottom: 70px;
       }
       .adv-box {
         margin-top: 32px;
-        margin-bottom: 50px;
+        margin-bottom: 70px;
         overflow: hidden;
         ul {
           @include clearfix;
@@ -266,6 +269,7 @@ export default {
             .img {
               width: 268px;
               height: 182px;
+              box-shadow: 0px 2px 12px 0px rgba(0, 0, 0, 0.11);
               img {
                 width: 100%;
                 height: 100%;
@@ -278,10 +282,13 @@ export default {
         margin-top: 50px;
         box-sizing: border-box;
         padding-left: 192px;
+        > ul {
+          @include clearfix;
+        }
         li {
           text-align: center;
           width: 198px;
-          display: inline-block;
+          float: left;
           margin-right: 140px;
           &:last-child {
             margin-right: 0;
@@ -333,6 +340,7 @@ export default {
             border-radius: 18px;
             overflow: hidden;
             margin: 0 auto;
+            box-shadow: 0px 2px 12px 0px rgba(0, 0, 0, 0.11);
             img {
               width: 100%;
               height: 100%;

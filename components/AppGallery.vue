@@ -107,7 +107,7 @@ export default {
     img {
       width: 100%;
       height: 100%;
-      animation: scale 10s infinite both;
+      animation: scale 19s infinite both;
     }
   }
 }

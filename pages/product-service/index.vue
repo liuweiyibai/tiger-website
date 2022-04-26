@@ -8,7 +8,7 @@
         <img src="~@/assets/images/职虎APP@3x.png" alt="" />
       </div>
       <h2 class="_h2 _h2-title">
-        更多新职业<span><i>/</i> ABOUT HRTIGER</span>
+        更多新职业<span><i>/</i>MORE NWE OCCUPATION</span>
       </h2>
       <p class="_p p-2">
         职虎2.0加入更多新职业，涉及教育、医疗健康、汽车、建筑、智慧农业、互联网、物联网7大领域，包含在线学习服务师、呼吸治疗师、互联网营销师、物联网安装调试员、农业经理人、职业培训师、健康照护师、老年人能力评估师、康复辅助技术咨询师、汽车救援员、二手车经纪人、建筑信息模型技术员、装配式建筑施工员、建筑幕墙设计师等新职业，为你提供更多样的选择。
@@ -17,7 +17,7 @@
         <img src="~@/assets/images/更多新职业@2x.png" alt="" />
       </div>
       <h2 class="_h2 _h2-title">
-        深耕新职业<span><i>/</i> ABOUT HRTIGER</span>
+        深耕新职业<span><i>/</i>DEEP CULTIVATION OF NWE OCCUPATION</span>
       </h2>
       <p class="_p" style="margin-bottom: 18px">
         <span>1. 职业介绍视频：</span
@@ -35,7 +35,7 @@
         <img src="~@/assets/images/深耕新职业@2x.png" alt="" />
       </div>
       <h2 class="_h2 _h2-title">
-        新职业动态<span><i>/</i> ABOUT HRTIGER</span>
+        新职业动态<span><i>/</i>NEW CAREER TRENDS</span>
       </h2>
       <p class="_p p-4">
         推送在线学习服务师、呼吸治疗师、互联网营销师、物联网安装调试员等多个新职业的前沿信息，包含职业前景、市场规模、职业深度报道等，助你了解自己的职业发展前景。
@@ -52,6 +52,11 @@ export default {
   layout: 'app-layout',
   galleryData: {
     type: 'product-service-1',
+  },
+  head() {
+    return {
+      title: `新职业培训-职虎`,
+    }
   },
 }
 </script>
@@ -93,13 +98,12 @@ export default {
     .img-1 {
       width: 100%;
       height: 500px;
-      background: red;
       margin: 0 auto;
       box-shadow: 0px 2px 13px 0px rgba(0, 0, 0, 0.04);
-      margin-bottom: 31px;
+      margin-bottom: 70px;
     }
     .img-2 {
-      margin-bottom: 79px;
+      margin-bottom: 70px;
     }
     .img-3 {
       margin-bottom: 0;

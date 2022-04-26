@@ -18,8 +18,17 @@ export default {
     },
     meta: [
       { charset: 'utf-8' },
-      // { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-      { hid: 'description', name: 'description', content: '' },
+      {
+        hid: 'description',
+        name: 'description',
+        content: '职虎-让职业连接人与未来',
+      },
+      {
+        hid: 'keywords',
+        name: 'keywords',
+        content:
+          '职虎,职虎人力,人力资源,技能培训,新职业,新职业标准,新职业培训,评价组织,校企合作,实训平台,找工作,招聘,点点招聘,点点求职,点点速聘',
+      },
       { name: 'format-detection', content: 'telephone=no' },
       {
         name: 'viewport',
@@ -29,10 +38,13 @@ export default {
     ],
     link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }],
   },
-
   router: {
     scrollBehavior(to, from, savedPosition) {
       if (from.path !== to.path) return { x: 0, y: 0 }
+      return {
+        x: 0,
+        y: 500,
+      }
     },
   },
 
@@ -49,8 +61,9 @@ export default {
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
   plugins: [
-    { src: '@/plugins/raf.js', ssr: false },
     { src: '@/plugins/element-ui', ssr: true },
+    { src: '@/plugins/raf.js', ssr: false },
+    { src: '@/plugins/scroll-to.js', ssr: false },
     { src: '@/plugins/swiper', ssr: false },
   ],
 
@@ -58,25 +71,28 @@ export default {
   components: true,
 
   // Modules for dev and build (recommended): https://go.nuxtjs.dev/config-modules
-  buildModules: [],
+  buildModules: [
+    // '@aceforth/nuxt-optimized-images'
+  ],
+  // optimizedImages: {
+  //   optimizeImages: true,
+  // },
   axios: {
-    proxy: false, // 表示开启代理
-    // prefix: '/', // 表示给请求url加个前缀 /api
+    proxy: true, // 表示开启代理
+    prefix: '/api', // 表示给请求url加个前缀 /api
     credentials: true,
     debug: true,
-    baseURL:
-      'https://www.fastmock.site/mock/a4d0ead5174008439867b1760d5b1ed3/api',
+    // baseURL: '',
   },
-  // proxy: {
-  //   '/api': {
-  //     target:
-  //       'https://www.fastmock.site/mock/a4d0ead5174008439867b1760d5b1ed3/api', // 目标接口域名
-  //     changeOrigin: true, // 表示是否跨域
-  //     pathRewrite: {
-  //       '^/api': '/api', // 把 /api 替换成 /
-  //     },
-  //   },
-  // },
+  proxy: {
+    '/api': {
+      target: 'https://zhihu_apigateway.chinahrt.com/api/customerGoods/', // 目标接口域名
+      changeOrigin: true, // 表示是否跨域
+      pathRewrite: {
+        '^/api': '', // 把 /api 替换成 /
+      },
+    },
+  },
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {
@@ -88,7 +104,6 @@ export default {
     postcss: {
       plugins: {
         autoprefixer: {},
-
         'postcss-px-to-viewport': {
           unitToConvert: 'px',
           viewportWidth: 1440,

@@ -11,7 +11,7 @@
         职虎联合地方政府、院校、培训机构及行业企业等单位共建新职业高技能人才培养基地，将在全国各省市地区建立新职业人才的培训基地、评价基地、就业服务基地、创新创业基地、大赛集训基地、产业服务基地等，提供师资培养、专业共建、实训室共建、产业学院共建、实习实训、社会培训、创新创业、就业指导、政策咨询、社会服务等多种教育产品及服务。
       </p>
       <h2 class="_h2 _h2-title">
-        合作方向<span><i>/</i>ABOUT HRTIGER</span>
+        合作方向<span><i>/</i>COOPERATION DIRECTION</span>
       </h2>
       <div class="box">
         <ul ref="uls">
@@ -87,6 +87,11 @@ export default {
   layout: 'app-layout',
   galleryData: {
     type: 'product-service-3',
+  },
+  head() {
+    return {
+      title: `院校合作-职虎`,
+    }
   },
   data() {
     return {
@@ -240,7 +245,7 @@ export default {
       margin-bottom: 30px;
     }
     .p-3 {
-      margin-bottom: 84px;
+      margin-bottom: 70px;
     }
     .box {
       ul {

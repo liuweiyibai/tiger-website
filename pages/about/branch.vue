@@ -19,6 +19,11 @@ export default {
   galleryData: {
     type: 'about-branch-page',
   },
+  head() {
+    return {
+      title: `分支结构-职虎`,
+    }
+  },
   data() {
     return {
       list: [
@@ -92,9 +97,11 @@ export default {
     ul {
       margin: -30px -61px;
       li {
-        display: inline-block;
+        float: left;
         margin: 30px 61px;
         width: 289px;
+        height: 122px;
+        font-size: 0;
         p {
           margin: 0;
           font-size: 14px;

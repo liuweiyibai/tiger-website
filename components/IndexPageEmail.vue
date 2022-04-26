@@ -4,11 +4,12 @@
     <div class="form">
       <form>
         <input type="text" placeholder="请输入您的姓名" />
-        <input type="text" placeholder="请输入您的姓名" />
-        <input type="text" placeholder="请输入您的姓名" />
+        <input type="text" placeholder="请输入企业名称" />
+        <input type="text" placeholder="请输入您的手机号" />
       </form>
       <div type="button" class="button"></div>
     </div>
+    <img class="gallery" src="~@/assets/images/img_开启合作@3x.png" alt="" />
   </div>
 </template>
 
@@ -17,12 +18,20 @@
   .index-email__layout {
     width: 100%;
     height: 420px;
-    background-image: url(~@/assets/images/img_开启合作@3x.png);
-    background-size: 100% 100%;
-    background-position: center;
-    background-repeat: no-repeat;
+    // background-image: url();
+    // background-size: 100% 100%;
+    // background-position: center;
+    // background-repeat: no-repeat;
+    background: #fcd02d;
     margin-top: 63px;
     position: relative;
+    > .gallery {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 690px;
+      height: 100%;
+    }
     .text {
       width: 240px;
       height: 112px;
@@ -60,8 +69,19 @@
         margin-bottom: 13px;
         box-sizing: border-box;
         padding: 20px 18px;
+        font-size: 16px;
+        font-family: PingFangSC-Medium, PingFang SC;
+        font-weight: 500;
+        color: #000000;
+        &:focus,
+        &:focus-visible {
+          outline: 1px solid $primary-color;
+        }
         &:last-child {
           margin-bottom: 24px;
+        }
+        &::placeholder {
+          color: #666666;
         }
       }
       .button {

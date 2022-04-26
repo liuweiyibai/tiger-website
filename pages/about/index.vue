@@ -59,6 +59,12 @@ export default {
   galleryData: {
     type: 'about-page',
   },
+
+  head() {
+    return {
+      title: `关于我们-职虎`,
+    }
+  },
   data() {
     return {
       enterpriseConcerts: [
@@ -74,7 +80,7 @@ export default {
         },
         {
           title: '价值观',
-          des: '助力3亿人的职业转型平台',
+          des: '正直向善 以人为本',
           img: JiaZhiGuanImage,
         },
       ],

@@ -63,7 +63,7 @@ export default {
         freeMode: true,
         speed: 20000,
         autoplayDisableOnInteraction: false,
-        autoplay: 4000,
+        autoplay: 2000,
         updateOnImagesReady: true,
       })
 

@@ -52,3 +52,23 @@ export function getBrowserVersion() {
     return -1 //不是ie浏览器
   }
 }
+
+// 模拟 setInterval
+export function _setInterval(fn, millisec, count) {
+  let timer
+  function interval() {
+    if (typeof count === 'undefined' || count-- > 0) {
+      timer = setTimeout(interval, millisec)
+      try {
+        fn()
+      } catch (e) {
+        count = 0
+        throw e.toString()
+      }
+    }
+  }
+  timer = setTimeout(interval, millisec)
+  return {
+    callback: () => clearTimeout(timer),
+  }
+}

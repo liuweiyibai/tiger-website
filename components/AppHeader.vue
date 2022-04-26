@@ -169,14 +169,14 @@ export default {
 
 <style lang="scss" scoped>
 @mixin active {
-  font-size: 20px;
+  font-size: 18px;
   font-family: PingFangSC-Medium, PingFang SC;
   font-weight: 500;
   color: #000000;
 }
 @mixin styles {
   .app-header {
-    width: 1440px;
+    min-width: 1440px;
     height: 80px;
     background: #ffffff;
     box-sizing: border-box;
@@ -184,7 +184,6 @@ export default {
     position: fixed;
     top: 0;
     z-index: 999;
-    transition: all 0.3s;
     &.shadow {
       box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.22);
     }
@@ -210,7 +209,6 @@ export default {
         float: left;
         line-height: 80px;
         position: relative;
-        border-bottom: 4px solid transparent;
         height: 100%;
         transition: all 0.3s;
         text-align: center;
@@ -224,7 +222,7 @@ export default {
           width: 130px;
           &:hover {
             .nav-dropdown {
-              height: 174px;
+              max-height: 174px;
             }
           }
         }
@@ -239,7 +237,7 @@ export default {
           width: 130px;
           &:hover {
             .nav-dropdown {
-              height: 213px;
+              max-height: 213px;
             }
           }
         }
@@ -248,29 +246,35 @@ export default {
           width: 114px;
           &:hover {
             .nav-dropdown {
-              height: 135px;
+              max-height: 135px;
             }
           }
         }
 
-        &:after {
-          content: '';
-          position: absolute;
-          width: 100%;
-          height: 0;
-          left: 0;
-          right: 0;
-          bottom: 0;
-          background-color: transparent;
-          transition: all linear 0.3s;
+        > a {
+          position: relative;
+          display: inline-block;
+          &:after {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: transparent;
+            transition: background 0.3s;
+          }
         }
 
         &:hover,
         &.active-link {
           @include active();
-          &:after {
-            height: 4px;
-            background: #ffd400;
+          > a {
+            &:after {
+              height: 4px;
+              background: #ffd400;
+            }
           }
         }
 
@@ -279,11 +283,12 @@ export default {
           background: #fff;
           box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.22);
           top: 80px;
-          left: -25px;
-          right: -25px;
           transition: all 0.3s;
-          height: 0;
+          max-height: 0;
           overflow: hidden;
+          width: 140px;
+          left: 50%;
+          margin-left: -70px;
           li {
             font-size: 14px;
             font-family: PingFangSC-Light, PingFang SC;
@@ -294,9 +299,9 @@ export default {
             margin-bottom: 26px;
             position: relative;
             box-sizing: border-box;
-            padding-left: 53px;
+            padding-left: 38px;
             text-align: left;
-            transition: all linear 0.3s;
+            transition: all 0.3s;
             &:first-child {
               margin-top: 38px;
             }
@@ -315,7 +320,7 @@ export default {
               &:before {
                 background: #ffd400;
                 border-radius: 1px;
-                left: 45px;
+                left: 30px;
               }
             }
           }

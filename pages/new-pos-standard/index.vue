@@ -88,6 +88,11 @@ export default {
   galleryData: {
     type: 'new-pos-standard',
   },
+  head() {
+    return {
+      title: this.windowTitle,
+    }
+  },
   asyncData({ query }) {
     const category = getCategory(query)
     return { category }
@@ -99,6 +104,7 @@ export default {
     return {
       categories,
       activeName: category,
+      windowTitle: `${category}-职虎`,
     }
   },
   computed: {
@@ -111,6 +117,7 @@ export default {
   },
   methods: {
     handleClick(args) {
+      this.windowTitle = `${args.name}-职虎`
       this.$router.push({ query: { category: args.name } })
     },
   },

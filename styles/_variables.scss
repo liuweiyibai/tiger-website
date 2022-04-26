@@ -29,14 +29,15 @@ $breakpoint: 1440px;
       left: 0;
       right: 0;
       z-index: 888;
+      background: #f8f8f8;
     }
     .el-breadcrumb {
       margin-left: 119px;
-      font-size: 18px;
+      font-size: 14px;
       font-family: PingFangSC-Regular, PingFang SC;
       font-weight: 400;
       color: #999999;
-      margin-bottom: 50px;
+      margin-bottom: 51px;
     }
   }
 }
@@ -50,23 +51,14 @@ $breakpoint: 1440px;
     border-bottom: 1px solid #dddddd;
     padding-top: 18px;
     position: relative;
-    &::after {
-      content: '';
-      width: 64px;
-      display: block;
-      height: 4px;
-      background: #ffd400;
-      left: 50%;
-      bottom: 0;
-      position: absolute;
-      transform: translateX(-50%);
-    }
+
     &.fixed {
       position: fixed;
       top: 10px;
       left: 0;
       right: 0;
       z-index: 888;
+      background: #f8f8f8;
     }
 
     .title-box {
@@ -78,6 +70,21 @@ $breakpoint: 1440px;
       line-height: 16px;
       margin-bottom: 19px;
       text-align: center;
+      span {
+        display: inline-block;
+        position: relative;
+        &::after {
+          content: '';
+          width: 100%;
+          display: block;
+          height: 4px;
+          background: #ffd400;
+          left: 50%;
+          bottom: -20px;
+          position: absolute;
+          transform: translateX(-50%);
+        }
+      }
     }
   }
 }
@@ -87,4 +94,10 @@ $breakpoint: 1440px;
   background-size: 100% 100%;
   background-position: center;
   background-repeat: no-repeat;
+}
+
+@function randomNum($min, $max) {
+  $rand: random();
+  $randomNum: $min + floor($rand * (($max - $min) + 1));
+  @return $randomNum;
 }

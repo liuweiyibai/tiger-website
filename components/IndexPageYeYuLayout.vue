@@ -66,6 +66,8 @@ export default {
 @mixin styles() {
   .index-yewu__layout {
     // height: 512px;
+    width: 100%;
+    overflow: hidden;
     .title {
       height: 70px;
       font-size: 50px;
@@ -88,6 +90,7 @@ export default {
       text-align: center;
       margin: 0 auto;
       margin-top: 15px;
+      font-weight: 200;
       &.highlight {
         width: 524px;
         height: 33px;
@@ -111,35 +114,37 @@ export default {
         height: 460px;
         float: left;
         position: relative;
+        box-sizing: border-box;
         border-right: 6px solid #fff;
         &:last-child {
           border: 0 none;
         }
         .item-box {
-          width: 100%;
+          width: 390px;
           height: 460px;
           position: absolute;
-          left: 0;
-          top: 0;
+          left: 50%;
+          top: 50%;
+          transform: translate(-50%, -50%);
           transition: all 0.6s;
-          background: #1b1a18;
           overflow: hidden;
           .image-box {
             height: 210px;
             width: 100%;
-            transition: all 0.6s;
+            transition: height linear 0.6s;
             img {
               width: 100%;
               height: 100%;
             }
           }
           .text-box {
-            width: 396px;
+            width: 100%;
             height: 250px;
             padding-top: 56px;
             padding-left: 47px;
             box-sizing: border-box;
-            transition: all 0.6s;
+            transition: all 0.3s;
+            background: #1b1a18;
             h3 {
               width: 72px;
               height: 33px;
@@ -150,6 +155,7 @@ export default {
               line-height: 33px;
               margin: 0;
               padding: 0;
+              margin-bottom: 16px;
             }
             div {
               font-size: 18px;
@@ -175,19 +181,17 @@ export default {
             z-index: 2;
             width: 408px;
             height: 536px;
-            left: 50%;
-            top: 50%;
-            transform: translate(-50%, -50%);
-            background: #ffd400;
             box-shadow: 0px 2px 25px 0px rgba(255, 212, 0, 0.26);
             border-radius: 20px;
             .image-box {
               height: 216px;
             }
             .text-box {
+              background: #ffd400;
               height: 320px;
-              padding-top: 91px;
-              padding-left: 35px;
+              overflow: hidden;
+              // padding-top: 91px;
+              // padding-left: 35px;
               h3,
               div {
                 color: #000000;

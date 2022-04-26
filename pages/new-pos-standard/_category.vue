@@ -19,7 +19,11 @@
         <el-breadcrumb-item>{{ item.title }}</el-breadcrumb-item>
       </el-breadcrumb>
       <div class="title-box">
-        <span>{{ item.title }}</span>
+        <nuxt-link
+          :to="{ path: `/new-pos-standard?category=${item.category}` }"
+        >
+          <span>{{ item.category }}</span>
+        </nuxt-link>
       </div>
     </div>
 
@@ -42,17 +46,24 @@ export default {
   galleryData: {
     type: 'new-pos-standard',
   },
+  head() {
+    return {
+      title: this.windowTitle,
+    }
+  },
   asyncData({ params }) {
     if (params.category) {
       const item = newPosStandardJson.find((t) => t.title === params.category)
       if (item) {
-        return { item }
+        const title = `${params.category}-职虎`
+        return { item, windowTitle: title }
       }
     }
   },
   data() {
     return {
       item: {},
+      windowTitle: '',
     }
   },
 }
