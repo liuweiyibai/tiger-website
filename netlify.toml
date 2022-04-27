@@ -1,0 +1,4 @@
+[[redirects]]
+  from = "/api"
+  to = "https://zhihu_apigateway.chinahrt.com/api/customerGoods/"
+  status = 200
