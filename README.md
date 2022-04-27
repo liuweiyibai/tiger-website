@@ -74,3 +74,5 @@ https://lanhuapp.com/web/#/item/project/detailDetach?pid=14aedd5b-8c1a-4e9b-88dc
 ## 生成 elementui 主题命令行工具
 
 ![参考地址](https://www.whidy.net/elementui-customize-theme-with-primordials-is-not-defined-error/)
+
+https://gitlab.chinahrt.com/hrtiger/tiger-website.git

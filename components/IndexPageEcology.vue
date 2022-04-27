@@ -69,6 +69,7 @@ export default {
     background-repeat: no-repeat;
     position: relative;
     overflow: hidden;
+
     h2 {
       font-size: 50px;
       font-family: PingFangSC-Semibold, PingFang SC;
@@ -79,6 +80,7 @@ export default {
       padding: 0;
       text-align: center;
       margin-bottom: 20px;
+      z-index: 2;
     }
     .des {
       font-size: 24px;
@@ -87,10 +89,12 @@ export default {
       color: #ffffff;
       line-height: 33px;
       text-align: center;
+      z-index: 2;
     }
     .circle-box {
       position: absolute;
       bottom: 10px;
+      z-index: 2;
       > span {
         display: block;
         text-align: center;
@@ -163,6 +167,7 @@ export default {
         color: #000000;
         text-align: center;
         line-height: 80px;
+        z-index: 2;
       }
     }
     .animate-box {
@@ -172,6 +177,7 @@ export default {
       bottom: 0;
       right: 0;
       top: 0;
+      z-index: 1;
       > div {
         position: relative;
         width: 100%;
@@ -250,30 +256,28 @@ export default {
       .circle-container:nth-child(#{$i}) {
         width: map-get($item, width);
         height: map-get($item, height);
+        // opacity: 0;
+        transform: translate($fromX, map-get($item, fromY));
+        // left: $fromX;
+        // top: map-get($item, fromY);
         animation-name: move-frames-#{$i};
-        animation-duration: randomNum(8, 16) + s;
-        animation-delay: randomNum(2, 6) + s;
-        transform: translate(map-get($item, fromX), map-get($item, fromY));
+        animation-duration: randomNum(5, 12) + s;
+        animation-delay: randomNum(0, 6) + s;
       }
 
       @keyframes move-frames-#{$i} {
-        0% {
-          transform: translate(map-get($item, fromX), map-get($item, fromY));
-          opacity: 1;
-        }
-        33% {
-          transform: translate(map-get($item, fromX), map-get($item, toY));
-          opacity: 0;
-        }
-        66% {
-          transform: translate(map-get($item, fromX), 1000px);
-          opacity: 0;
-        }
+        // 33% {
+        //   transform: translate($fromX, map-get($item, toY));
+        //   opacity: 0;
+        // }
         100% {
-          transform: translate(map-get($item, fromX), map-get($item, fromY));
-          opacity: 1;
-          animation-delay: 20s;
+          transform: translate($fromX, map-get($item, toY));
+          opacity: 0;
         }
+        // 100% {
+        //   transform: translate($fromX, map-get($item, fromY));
+        //   opacity: 0;
+        // }
       }
     }
   }

@@ -1,25 +1,45 @@
 <template>
   <div class="info-center-page">
     <InfoCenterLayout>
-      <div class="info-center-list">
+      <div
+        class="info-center-list"
+        :class="{
+          'is-only-text-mode': isOnlyTextMode,
+        }"
+      >
         <ul>
           <li v-for="(item, index) in list" :key="index">
             <nuxt-link
+              :title="item.title"
               :to="{
                 path: `/info-center/${item.id}`,
                 query: { ...$route.query },
               }"
             >
-              <div class="image-box">
-                <img :src="item.pictureUrl" />
-              </div>
-              <div class="text-box">
-                <div class="text">{{ item.title }}</div>
-                <div class="time">
-                  <span>{{ item.source }}</span>
-                  <span class="span2">{{ formatDate(item.publishTime) }}</span>
+              <template v-if="isOnlyTextMode">
+                <div class="time-box">
+                  <h2>{{ formatOnlyDay(item.publishTime) }}</h2>
+                  <p>{{ formatYearMonth(item.publishTime) }}</p>
                 </div>
-              </div>
+                <div class="content-box">
+                  <div class="title-box">{{ item.title }}</div>
+                  <div class="graph-box">{{ item.title }}</div>
+                </div>
+              </template>
+              <template v-else>
+                <div class="image-box">
+                  <img :src="item.pictureUrl" />
+                </div>
+                <div class="text-box">
+                  <div class="text">{{ item.title }}</div>
+                  <div class="time">
+                    <span>{{ item.source }}</span>
+                    <span class="span2">{{
+                      formatDate(item.publishTime)
+                    }}</span>
+                  </div>
+                </div>
+              </template>
             </nuxt-link>
           </li>
         </ul>
@@ -42,18 +62,25 @@
 </template>
 <script>
 import dayjs from 'dayjs'
+
+// -120-
+// 职业热点
+// -123-
+// 政策法规
+// -144-
+// 活动资讯
 const categories = [
   {
     title: '最新热点',
-    id: '110',
+    id: '-120-',
   },
   {
     title: '政策法规',
-    id: '42',
+    id: '-123-',
   },
   {
     title: '活动资讯',
-    id: '111',
+    id: '-144-',
   },
 ]
 function getTitle({ key }) {
@@ -101,6 +128,14 @@ export default {
       }
     },
   },
+  computed: {
+    isOnlyTextMode() {
+      const { query } = this.$route
+      const id = getCategory(query)
+      // return id === '-123-'
+      return true
+    },
+  },
   methods: {
     handleSizeChange(val) {
       this.pageInfo.pageSize = val
@@ -139,6 +174,12 @@ export default {
     formatDate(timestap) {
       return dayjs(timestap).format('YYYY-MM-DD')
     },
+    formatYearMonth(timestap) {
+      return dayjs(timestap).format('YYYY-MM')
+    },
+    formatOnlyDay(timestap) {
+      return dayjs(timestap).format('DD')
+    },
   },
 }
 </script>
@@ -156,6 +197,77 @@ export default {
       padding-top: 29px;
       ul {
         @include clearfix;
+      }
+
+      &.is-only-text-mode {
+        width: 760px;
+        margin: 0 auto;
+        padding: 0;
+        margin-top: 29px;
+        margin-bottom: 30px;
+        background: #fff;
+        ul {
+          width: 100%;
+        }
+        ul li {
+          display: block;
+          width: 100%;
+          height: auto;
+          margin: 0;
+          box-sizing: border-box;
+          padding: 40px 20px 20px 20px;
+          border-bottom: 1px solid #ddd;
+          a {
+            @include clearfix;
+            display: block;
+            overflow: hidden;
+          }
+          &:hover {
+            .title-box {
+              text-decoration: underline;
+            }
+          }
+
+          .time-box {
+            float: left;
+            text-align: center;
+            margin-right: 20px;
+            color: #999999;
+            h2 {
+              margin: 0;
+              font-size: 32px;
+              font-weight: 500;
+              margin-bottom: 20px;
+            }
+            p {
+              margin: 0;
+              font-size: 14px;
+            }
+          }
+          .content-box {
+            float: left;
+            .title-box {
+              font-size: 22px;
+              line-height: 1.1;
+              max-width: 630px;
+              overflow: hidden;
+              text-overflow: ellipsis;
+              white-space: nowrap;
+              margin-bottom: 20px;
+            }
+            .graph-box {
+              overflow: hidden;
+              max-width: 630px;
+              font-size: 16px;
+              line-height: 1.5;
+              overflow: hidden;
+              text-overflow: ellipsis;
+              display: -webkit-box; //作为弹性伸缩盒子模型显示。
+              -webkit-box-orient: vertical; //设置伸缩盒子的子元素排列方式--从上到下垂直排列
+              -webkit-line-clamp: 2; //显示的行
+            }
+          }
+        }
       }
 
       li {

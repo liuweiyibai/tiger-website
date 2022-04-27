@@ -171,6 +171,7 @@ export default {
       padding-bottom: 82px;
       ul {
         @include clearfix;
+        margin: -18px -8px;
       }
 
       li {

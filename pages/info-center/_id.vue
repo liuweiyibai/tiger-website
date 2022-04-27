@@ -7,11 +7,23 @@
     </div>
     <div class="detail-footer" slot="footer">
       <div class="link-box">
-        <div class="link">
-          上一篇<nuxt-link to="">推动新职业可持续发展的对策探讨</nuxt-link>
+        <div class="link" v-if="lastAnNextPager.before">
+          上一篇<nuxt-link
+            :to="{
+              path: `/info-center/${lastAnNextPager.before.id}`,
+              query: { ...$route.query },
+            }"
+            >{{ lastAnNextPager.before.title }}</nuxt-link
+          >
         </div>
-        <div class="link link-2">
-          下一篇<nuxt-link to="">推动新职业可持续发展的对策探讨</nuxt-link>
+        <div class="link link-2" v-if="lastAnNextPager.after">
+          下一篇<nuxt-link
+            :to="{
+              path: `/info-center/${lastAnNextPager.after.id}`,
+              query: { ...$route.query },
+            }"
+            >{{ lastAnNextPager.after.title }}</nuxt-link
+          >
         </div>
       </div>
     </div>
@@ -36,7 +48,36 @@ export default {
       title: '',
       content: '',
       publishTime: '',
+      list: [],
     }
+  },
+  computed: {
+    lastAnNextPager() {
+      const vm = this
+      const $route = vm.$route
+      const id = $route.params.id
+      const index = vm.list.findIndex((t) => t.id === id)
+      if (index > -1) {
+        let before = null,
+          after = null,
+          beforeIndex = index - 1,
+          afterIndex = index + 1
+        if (beforeIndex >= 0) {
+          before = vm.list[beforeIndex]
+        }
+        if (afterIndex < vm.list.length) {
+          after = vm.list[afterIndex]
+        }
+        return {
+          before,
+          after,
+        }
+      }
+      return {
+        before: null,
+        after: null,
+      }
+    },
   },
   methods: {
     init() {
@@ -49,13 +90,30 @@ export default {
       vm.$axios
         .get(`/customerGoods/information/getInformation/${id}`)
         .then((resp) => {
-          console.log(resp)
           const data = resp.data.data
           if (data) {
             vm.title = data.title
             vm.publishTime = data.publishTime
             vm.content = data.content
+            vm.getAllInfoList(data.categoryId)
           }
+        })
+    },
+
+    getAllInfoList(categoryId) {
+      const vm = this
+      vm.$axios
+        .get(`/customerGoods/information/getInformationList`, {
+          params: {
+            pageSize: 100000,
+            currentPage: 1,
+            status: '050002',
+            path: `-${categoryId}-`,
+          },
+        })
+        .then((resp) => {
+          const data = resp.data.data
+          vm.list = data.rows || []
         })
     },
     formatDate(timestap) {
@@ -73,7 +131,6 @@ export default {
     box-sizing: border-box;
     padding-top: 51px;
     .title {
-      height: 37px;
       font-size: 26px;
       font-family: PingFangSC-Medium, PingFang SC;
       font-weight: 500;
@@ -130,6 +187,13 @@ export default {
             color: #666666;
             line-height: 14px;
             margin-left: 6px;
+            max-width: 210px;
+            overflow: hidden;
+            display: inline-block;
+            overflow: hidden; //超出的文本隐藏
+            text-overflow: ellipsis; //溢出用省略号显示
+            white-space: nowrap; //溢出不换行
+            vertical-align: bottom;
           }
         }
         .link-2 {

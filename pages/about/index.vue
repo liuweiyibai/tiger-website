@@ -119,9 +119,9 @@ export default {
       box-sizing: border-box;
       padding-top: 50px;
     }
-    ._h2-title span {
-      color: #ffd400;
-    }
+    // ._h2-title span {
+    //   color: #ffd400;
+    // }
     .p-1 {
       margin-bottom: 58px;
     }

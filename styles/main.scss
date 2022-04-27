@@ -31,6 +31,8 @@ body {
 img {
   width: 100%;
   height: 100%;
+  outline: none;
+  border: 0px;
 }
 
 .swiper-free-mode > .swiper-wrapper {
@@ -94,12 +96,12 @@ img {
     &.is-background .btn-prev,
     &.is-background .btn-next,
     &.is-background .el-pager li {
-      background-color: unset;
+      background-color: transparent;
       border: 1px solid #d9d9d9;
     }
 
     &.is-background .el-pager li:not(.disabled).active {
-      background-color: unset;
+      background-color: transparent;
       border-color: $primary-color;
       color: $primary-color;
     }
